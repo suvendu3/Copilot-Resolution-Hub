@@ -1,0 +1,58 @@
+﻿{
+    "testId":  "dbc03aee9ee4cadd89cc-8e73b208e75bc04875c6",
+    "title":  "[@regression] INT-267 Benefit Booklet â€” batch GET for all rows",
+    "file":  "integration/service_360/INT-267_Benefit_Booklet.test.ts",
+    "line":  54,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  970,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL_URL_13470596_row0",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/documents/api/v1/plan-members/13470596/languages/en/benefit-booklets"
+                        },
+                        {
+                            "name":  "USL_Status_13470596_row0",
+                            "contentType":  "text/plain",
+                            "body":  "200"
+                        },
+                        {
+                            "name":  "SOR_URL_13470596_row0",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/benefits-api/v1/plan-members/13470596/languages/en/benefit-booklets"
+                        },
+                        {
+                            "name":  "SOR_Status_13470596_row0",
+                            "contentType":  "text/plain",
+                            "body":  "200"
+                        },
+                        {
+                            "name":  "USL_URL_13470596_row1",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/documents/api/v1/plan-members/13470596/languages/fr/benefit-booklets"
+                        },
+                        {
+                            "name":  "USL_Status_13470596_row1",
+                            "contentType":  "text/plain",
+                            "body":  "200"
+                        },
+                        {
+                            "name":  "SOR_URL_13470596_row1",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/benefits-api/v1/plan-members/13470596/languages/fr/benefit-booklets"
+                        },
+                        {
+                            "name":  "SOR_Status_13470596_row1",
+                            "contentType":  "text/plain",
+                            "body":  "200"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-267] Loaded 2 row(s) from sheet \"INT-267_Benefit_Booklet\"\n[row 0] planMemberId=13470596 lang=en | USL=200 | SOR=200 | USL Content-Type=application/pdf | SOR Content-Type=application/pdf\nStatus â€” USL: 200, SOR: 200\nContent-Type: application/pdf\n[row 1] planMemberId=13470596 lang=fr | USL=200 | SOR=200 | USL Content-Type=application/pdf | SOR Content-Type=application/pdf\nStatus â€” USL: 200, SOR: 200\nContent-Type: application/pdf\n"
+                        }
+                    ]
+}

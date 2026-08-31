@@ -1,0 +1,56 @@
+# =============================================================================
+# Agent Observability — Console-Mode Smoke Check
+# =============================================================================
+# Purpose:
+#   Deterministic, no-account CI gate that proves the observability exporter
+#   still parses a run-record and emits spans. Runs emit_traces.py in --console
+#   mode against the committed example and fails on any secret-like value.
+#
+# Why console mode:
+#   No LOGFIRE_TOKEN or OTLP endpoint required, so this is safe to run on every
+#   PR. It validates the run-record schema shape and the exporter code path
+#   without shipping telemetry anywhere.
+#
+# Suggested path (this repo): docs/pipelines/azure-pipelines-observability-smoke.yml
+# =============================================================================
+
+name: Observability_Smoke_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - observability/**
+      - .github/skills/agent-observability/SKILL.md
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - observability/**
+      - .github/skills/agent-observability/SKILL.md
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: UsePythonVersion@0
+    displayName: 'Use Python 3.12'
+    inputs:
+      versionSpec: '3.12'
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r observability/requirements.txt
+    displayName: 'Install observability dependencies'
+
+  - script: |
+      python observability/emit_traces.py \
+        --input observability/examples/run-record.example.json \
+        --console \
+        --fail-on-secret
+    displayName: 'Emit example run-record (console, fail-on-secret)'

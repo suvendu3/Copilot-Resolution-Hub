@@ -1,0 +1,33 @@
+﻿{
+    "testId":  "9de33bc8e4e66a71344f-75008a012fe1388a33da",
+    "title":  "[@regression] INT-275A Plan Sponsor Locations positive scenario batch run",
+    "file":  "integration/service_360/INT-275A_Plan_Sponsor-Locations.test.ts",
+    "line":  53,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  380,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "SOR_GE HealthCare Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"ClientId\": 50009,\n    \"LocationId\": 50456,\n    \"StatusCd\": 1,\n    \"LocationNum\": \"GE1\",\n    \"LocationNmTxt\": \"GE1  LTD.\",\n    \"AssignCertNumCd\": 1,\n    \"LocationTaxProvCd\": 0,\n    \"TermReasonCd\": 1,\n    \"EffectiveDt\": \"1970-01-01T00:00:00\",\n    \"RenewalDt\": \"2023-11-01T00:00:00\",\n    \"TermDt\": \"1899-12-30T00:00:00\",\n    \"Links\": [\n      {\n        \"Rel\": \"self\",\n        \"Href\": \"http://benadminqapd.ibenefits.ca/voapi/api/client/50009/location/50456\",\n        \"Action\": \"GET\"\n      }\n    ]\n  }\n]"
+                        },
+                        {
+                            "name":  "SOR_GE HealthCare URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://ibenefitsproxy-qa.ibenefits.ca/voapi/api/client/GE%20HealthCare/locations"
+                        },
+                        {
+                            "name":  "USL_GE HealthCare Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"locations\": [\n        {\n          \"locationId\": \"50456\",\n          \"locationNumber\": \"GE1\",\n          \"locationName\": \"GE1  LTD.\",\n          \"salesTaxProvince\": \"0\",\n          \"effectiveDate\": \"1970-01-01T00:00:00\",\n          \"renewalDate\": \"2023-11-01T00:00:00\",\n          \"terminationDate\": \"1899-12-30T00:00:00\",\n          \"terminationReason\": \"1\"\n        }\n      ]\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL_GE HealthCare URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plansponsors/clientid/GE%20HealthCare/locations"
+                        }
+                    ]
+}

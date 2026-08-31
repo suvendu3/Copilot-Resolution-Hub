@@ -1,0 +1,28 @@
+﻿{
+    "testId":  "39b32e864e261117fce8-bf09c7fd32c74dab95ae",
+    "title":  "[@regression] [@smoke] Iterating through all planMemberIds",
+    "file":  "integration/service_360/INT-134A_planDetails-benefitStatement.test.ts",
+    "line":  14,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  19943,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [memberId=50024:106521:10467:149092] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/documents/api/v1/plan-members/getibenefitmemberdownloaddocument/50024:106521:10467:149092"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [memberId=50024:106521:10467:149092] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://ibenefitsproxy-qa.ibenefits.ca/voapi/api/member/50024:106521:10467:149092/confirmationStatement"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e memberId=50024:106521:10467:149092\nStatus Code - System: 200, USL: 200\n\n=\u003e memberId=50024:106522:25492:149093\nStatus Code - System: 200, USL: 200\n\n=\u003e memberId=50024:106523:12733:149094\nStatus Code - System: 200, USL: 200\n\n=\u003e memberId=50024:106524:13102:149095\nStatus Code - System: 200, USL: 200\n\n=\u003e memberId=50024:106525:14974:149096\nStatus Code - System: 200, USL: 200\n\n=\u003e memberId=50024:106526:16947:149097\nStatus Code - System: 200, USL: 200\n"
+                        }
+                    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "f7f87cc7a0073008ab3e-a103cf65559056883397",
+    "title":  "[@regression] [785011] Verify API response for valid required parameters",
+    "file":  "integration/service_360/INT-260A_enrollementPortal.test.ts",
+    "line":  32,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  1424,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [memberPlan=Arcadis:93832:139066] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Data retrieved successfully\",\n  \"data\": {\n    \"memberPlan\": \"Arcadis:93832:139066\",\n    \"name\": \"john.scaife@arcadis.com\",\n    \"clientNumber\": \"Arcadis\",\n    \"email\": \"john.scaife@arcadis.com\",\n    \"created\": \"2023-11-01T16:38:21.73\",\n    \"lastFailedLogin\": \"2024-11-22T21:39:37.443\",\n    \"accountClosed\": false,\n    \"accountVerified\": true\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [memberPlan=Arcadis:93832:139066] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/account/api/v1/plan-members/Arcadis:93832:139066/plandetailsenrollmentportal"
+                        },
+                        {
+                            "name":  "SOR [memberPlan=Arcadis:93832:139066] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"Username\": \"john.scaife@arcadis.com\",\n  \"MemberId\": \"93832\",\n  \"IsAccountClosed\": false,\n  \"IsAccountVerified\": true,\n  \"CertificateNum\": \"139066\",\n  \"LocationNum\": \"30OFC\",\n  \"ClientNum\": \"Arcadis\",\n  \"FirstNm\": \"Shanin\",\n  \"LastNm\": \"Chilcott\",\n  \"ID\": \"{CA9B8762-700F-4690-8BC8-8181EF7907F4}\",\n  \"LastLogin\": \"2024-11-22T21:42:15.74\",\n  \"Created\": \"2023-11-01T16:38:21.73\",\n  \"LastFailedLogin\": \"2024-11-22T21:39:37.443\",\n  \"Email\": \"john.scaife@arcadis.com\",\n  \"PasswordChanged\": \"2024-11-22T21:41:57.567\",\n  \"VerificationKey\": null\n}"
+                        },
+                        {
+                            "name":  "SOR [memberPlan=Arcadis:93832:139066] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://ibenefitsproxy-qa.ibenefits.ca/voapi/api/members/Arcadis:93832:139066/useraccount"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Row Number  : 0\nSOR and USL matched.\nRow Number  : 1\nSOR and USL matched.\nRow Number  : 2\nSOR and USL matched.\n"
+                        }
+                    ]
+}

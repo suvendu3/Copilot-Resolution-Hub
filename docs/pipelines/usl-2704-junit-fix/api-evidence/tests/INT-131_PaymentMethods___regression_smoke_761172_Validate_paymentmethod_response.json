@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "9293fd65879ecd5f3bae-a837324039d2ac41ed80",
+    "title":  "[@regression] [@smoke] [761172]Validate paymentmethod response for all valid rows",
+    "file":  "integration/service_360/INT-131_PaymentMethods.test.ts",
+    "line":  32,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  406,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [type=Provider,id=102346] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"bankNumber\": null,\n    \"bankTransitNumber\": null,\n    \"bankAccountNumber\": null,\n    \"eftEmailFlag\": false,\n    \"paymentMethod\": \"Cheque\",\n    \"effectiveDate\": \"1957-01-01T00:00:00\",\n    \"expiryDate\": null,\n    \"providerId\": 102346,\n    \"revisionNo\": 1,\n    \"hideBankingInfo\": \"N\",\n    \"deleteDate\": null,\n    \"deletedBy\": null,\n    \"historicalData\": [],\n    \"futureData\": [],\n    \"deletedData\": []\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [type=Provider,id=102346] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/payments/api/v1/plan-members/Provider/102346/paymentmethod"
+                        },
+                        {
+                            "name":  "SOR [type=Provider,id=102346] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"providerId\": 102346,\n  \"revisionNo\": 1,\n  \"paymentMethodType\": \"Cheque\",\n  \"bankNumber\": null,\n  \"transitNumber\": null,\n  \"accountNumber\": null,\n  \"eftEmailFlag\": false,\n  \"effectiveDate\": \"1957-01-01T00:00:00\",\n  \"deleteDate\": null,\n  \"deletedBy\": null,\n  \"expiryDate\": null,\n  \"maskingBankingInfoIndicator\": \"N\",\n  \"historicalData\": [],\n  \"futureData\": [],\n  \"deletedData\": []\n}"
+                        },
+                        {
+                            "name":  "SOR [type=Provider,id=102346] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/providers-api/v1/providers/102346/financials/claim-payout"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Row Number  : 0\nRow Number  : 1\n"
+                        }
+                    ]
+}

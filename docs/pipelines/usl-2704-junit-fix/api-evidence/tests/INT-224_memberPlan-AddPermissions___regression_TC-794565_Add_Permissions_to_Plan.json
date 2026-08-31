@@ -1,0 +1,18 @@
+﻿{
+    "testId":  "3aaa92a53d48c9468895-6078bd8ab6e5fc9f656e",
+    "title":  "[@regression] TC-794565: Add Permissions to Plan Member and Delete",
+    "file":  "integration/service_360/INT-224_memberPlan-AddPermissions.test.ts",
+    "line":  14,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  361,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "=\u003e\u003e Calling POST API to add permission for planMemberId=18312469\n{\n  \"isSuccess\": true,\n  \"statusCode\": 201,\n  \"message\": \"Permission added successfully\",\n  \"data\": {\n    \"authorizedPersonId\": 1024823,\n    \"responseCode\": \"0\",\n    \"responseMessage\": \"Permission added successfully\"\n  },\n  \"errors\": null\n}\nExtracted authorizedPersonId: 1024823\n=\u003e\u003e Calling GET API to verify record is created for planMemberId=18312469\nVerified: authorizedPersonId 1024823 exists in the created records\n=\u003e\u003e Calling DELETE API to remove permission for planMemberId=18312469, authorizedPersonId=1024823\n"
+                        }
+                    ]
+}

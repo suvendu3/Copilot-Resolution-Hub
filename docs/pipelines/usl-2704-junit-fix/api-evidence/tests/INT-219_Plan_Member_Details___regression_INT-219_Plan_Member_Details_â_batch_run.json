@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "d78351d40d3087534a26-481e12e1efef0a819b8a",
+    "title":  "[@regression] INT-219 Plan Member Details â€” batch run all planMemberIds",
+    "file":  "integration/service_360/INT-219_Plan_Member_Details.test.ts",
+    "line":  44,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  917,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL_1838_row0 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"status\": 204,\n  \"body\": \"\"\n}"
+                        },
+                        {
+                            "name":  "USL_1838_row0 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plan-members/notes"
+                        },
+                        {
+                            "name":  "SOR_1838_row0 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"status\": 204,\n  \"body\": \"\"\n}"
+                        },
+                        {
+                            "name":  "SOR_1838_row0 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/notes"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-219] Loaded 1 row(s) from sheet \"INT-219_Plan_Member_Details\"\n[row 0] planMemberId=1838 â€” request body:\n{\n  \"planMemberId\": \"1838\",\n  \"claimFormId\": 1322624514,\n  \"notepadId\": 20356674,\n  \"noteTypeCode\": \"PA\",\n  \"noteText\": \"Vision approval number 8074\",\n  \"noteKeywordText1\": \"Approval\",\n  \"noteKeywordText2\": \"Approval\",\n  \"noteKeywordText3\": \"Approval\",\n  \"noteKeywordText4\": \"Approval\",\n  \"noteKeywordText5\": \"Approval\",\n  \"enteredDate\": \"2026-01-01T00:00:00\",\n  \"effectiveDate\": \"2026-01-01T00:00:00\",\n  \"expiryDate\": \"2026-01-01T00:00:00\",\n  \"updatedBy\": \"DOEJ\",\n  \"deletedDate\": \"2026-01-01T00:00:00\",\n  \"deletedBy\": \"DOEJ\",\n  \"deletedReasonCode\": \"UP\",\n  \"providerId\": 2084110,\n  \"ppoId\": 123,\n  \"providerNetworkId\": 1,\n  \"benefitLevel\": \"C\",\n  \"benefitCategoryId\": 100006,\n  \"bdrpPackageId\": 13394,\n  \"provinceCode\": \"ON\",\n  \"auditId\": 123,\n  \"relatedTableTypeCode\": \"ACC\"\n}\n[row 0] planMemberId=1838 | USL=204 | SOR=204\n[row 0] USL body: \"\"\n[row 0] SOR body: \"\"\nExpected: 204, Actual: 204\nExpected: 204, Actual: 204\n"
+                        }
+                    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "07f65bf8085b894d4bc7-c5c407917e094cc0f24c",
+    "title":  "[@regression] [@smoke] Iterating through all requestBodies",
+    "file":  "integration/service_360/INT-254_buttonTriggerPayment.test.ts",
+    "line":  13,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  1144,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [payeeType=CL] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/payments/api/v1/payments/trigger-payment"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [payeeType=CL] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/payments/trigger-payment"
+                        },
+                        {
+                            "name":  "[FAIL-Status:400] Request Body",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"planSponsorId\": 1606,\n  \"memberPlanId\": \"1752016\",\n  \"dependentNo\": \"00\",\n  \"providerId\": null,\n  \"tpaId\": null,\n  \"paymentCurrencyCode\": \"CAN\",\n  \"otherPayeeId\": null,\n  \"payeeType\": \"SU\",\n  \"updatedBy\": \"JAMESA\"\n}"
+                        },
+                        {
+                            "name":  "[FAIL-Status:400] Request Body",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"planSponsorId\": 1606,\n  \"planMemberId\": \"1752016\",\n  \"dependentNo\": \"00\",\n  \"providerId\": null,\n  \"tpaId\": null,\n  \"paymentCurrencyCode\": \"CAN\",\n  \"otherPayeeId\": null,\n  \"payeeTypeCode\": \"SU\",\n  \"updatedBy\": \"JAMESA\"\n}"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e Request pair 1: payeeType=CL\nuslRequestBody: {\n  planSponsorId: 1606,\n  memberPlanId: \u00271752016\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: 102346,\n  tpaId: 23,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: 111,\n  payeeType: \u0027CL\u0027,\n  updatedBy: \u0027satish\u0027\n}\nsorRequestBody: {\n  planSponsorId: 1606,\n  planMemberId: \u00271752016\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: 102346,\n  tpaId: 23,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: 111,\n  payeeTypeCode: \u0027CL\u0027,\n  updatedBy: \u0027satish\u0027\n}\n=\u003e API responded with status USL: 204, SOR: 204\n\n=\u003e Request pair 2: payeeType=SU\nuslRequestBody: {\n  planSponsorId: 1606,\n  memberPlanId: \u00271752016\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: null,\n  tpaId: null,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: null,\n  payeeType: \u0027SU\u0027,\n  updatedBy: \u0027JAMESA\u0027\n}\nsorRequestBody: {\n  planSponsorId: 1606,\n  planMemberId: \u00271752016\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: null,\n  tpaId: null,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: null,\n  payeeTypeCode: \u0027SU\u0027,\n  updatedBy: \u0027JAMESA\u0027\n}\n=\u003e API responded with status USL: 400, SOR: 400\n\n=\u003e Request pair 3: payeeType=PR\nuslRequestBody: {\n  planSponsorId: 1606,\n  memberPlanId: \u00272318219\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: 2278489,\n  tpaId: null,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: null,\n  payeeType: \u0027PR\u0027,\n  updatedBy: \u0027JAMESA\u0027\n}\nsorRequestBody: {\n  planSponsorId: 1606,\n  planMemberId: \u00272318219\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: 2278489,\n  tpaId: null,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: null,\n  payeeTypeCode: \u0027PR\u0027,\n  updatedBy: \u0027JAMESA\u0027\n}\n=\u003e API responded with status USL: 204, SOR: 204\n\n=\u003e Request pair 4: payeeType=OT\nuslRequestBody: {\n  planSponsorId: 1606,\n  memberPlanId: \u00271752016\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: 102346,\n  tpaId: 23,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: 1111,\n  payeeType: \u0027OT\u0027,\n  updatedBy: \u0027JAMESA\u0027\n}\nsorRequestBody: {\n  planSponsorId: 1606,\n  planMemberId: \u00271752016\u0027,\n  dependentNo: \u002700\u0027,\n  providerId: 102346,\n  tpaId: 23,\n  paymentCurrencyCode: \u0027CAN\u0027,\n  otherPayeeId: 1111,\n  payeeTypeCode: \u0027OT\u0027,\n  updatedBy: \u0027JAMESA\u0027\n}\n=\u003e API responded with status USL: 204, SOR: 204\n"
+                        }
+                    ]
+}

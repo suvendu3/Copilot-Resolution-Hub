@@ -1,0 +1,86 @@
+flowchart TB
+    USER([Enterprise User<br/>Ops · QA · Dev · Support])
+
+    subgraph ENTRY["Entry Layer"]
+        COPILOT[GitHub Copilot<br/>VS Code · Agent Mode]
+    end
+
+    subgraph ORCH["Orchestration Layer"]
+        SUP[Supervisor Agent<br/>normalize · route · consolidate]
+        MAKER[Maker Agent<br/>proposes fix]
+        CHECKER[Checker Agent<br/>validates independently]
+    end
+
+    subgraph SKILLS["Skills (.github/skills)"]
+        SK1[enterprise-defect-triage]
+        SK2[user-story-validation]
+        SK3[system-routing]
+        SK4[fix-recommendation]
+        SK5[human-approval]
+        SK6[mcp-governance]
+        SK7[test-script-generation]
+    end
+
+    subgraph DOMAIN["Domain Coordinator Agents"]
+        CRM[CRM Agent]
+        CCAAS[CCaaS Agent]
+        API[API Agent]
+    end
+
+    subgraph SPEC["Specialist Agents"]
+        D365[D365 Agent]
+        AZF[Azure Function Agent]
+        NICE[NICE Agent]
+        OMIL[Omilia Agent]
+        USL[USL Agent]
+        SOR[SOR Agent]
+    end
+
+    subgraph KB["Knowledge & Governance (docs)"]
+        KBREG[knowledge-base-registry]
+        REPOREG[repository-registry]
+        MCPINV[mcp-inspection-inventory]
+        NICEDOC[nice-cxone-mcp-server-design]
+        USLDOC[usl-bug-end-to-end-prompts]
+        BUGDOC[enterprise-bug-end-to-end-prompts]
+        RELDOC[agent-reliability-learning-design]
+    end
+
+    subgraph MCP["MCP Servers (.vscode/mcp.json)"]
+        ADO[(ado-remote-mcp)]
+        PAC[(pac-mcp<br/>D365/Dataverse)]
+        NICEMCP[(nice-mcp)]
+        OMILMCP[(omilia-mcp<br/>RESTRICTED)]
+    end
+
+    USER --> COPILOT --> SUP
+    SUP -.reads.-> BUGDOC
+    SUP --> SK1 --> SK2 --> SK3
+
+    SUP --> CRM
+    SUP --> CCAAS
+    SUP --> API
+
+    CRM --> D365 & AZF
+    CCAAS --> NICE & OMIL
+    API --> USL & SOR
+
+    D365 & AZF & NICE & OMIL & USL & SOR --> MAKER
+    MAKER --> CHECKER
+    CHECKER -->|validated / rejected| SUP
+
+    MAKER -.follows.-> SK4 & SK6 & SK7
+    CHECKER -.escalates.-> SK5
+
+    D365 -.evidence.-> PAC
+    AZF -.evidence.-> ADO
+    NICE -.evidence.-> NICEMCP
+    OMIL -.blocked.-> OMILMCP
+    USL & SOR -.evidence.-> ADO
+
+    NICE -.setup.-> NICEDOC
+    USL -.workflow.-> USLDOC
+    D365 & AZF & NICE & OMIL & USL & SOR -.check first.-> KBREG
+    KBREG --> REPOREG
+    NICE & OMIL -.governed by.-> MCPINV
+    CHECKER -.learns into.-> RELDOC

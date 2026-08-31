@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "13e7fcca588307146cdc-9b2d1b36d9d0cbe9bc87",
+    "title":  "[@regression] INT-251 Drug Authorization batch run",
+    "file":  "integration/service_360/INT-251_drugAuthorization.test.ts",
+    "line":  86,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  926,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[row 0] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/subscribers/15755406/dependents/03/getdrugauthorizationinfo?subscriberId=15755406\u0026dependentNo=03\u0026includeDependents=TRUE\u0026pageIndex=0\u0026pageSize=25"
+                        },
+                        {
+                            "name":  "[row 0] Pharma URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-stg.onlineweb.ca/pharma-api/api/v1/AssessmentStatus/15755406?includeDependents=TRUE\u0026pageIndex=0\u0026pageSize=25"
+                        },
+                        {
+                            "name":  "[row 0] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"pageIndex\": 0,\n    \"pageSize\": 25,\n    \"recordCount\": 0,\n    \"data\": []\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 0] Pharma Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"pageIndex\": 0,\n  \"pageSize\": 25,\n  \"recordCount\": 0,\n  \"data\": []\n}"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[API Context] Pharma API Base URL: https://api-stg.onlineweb.ca/pharma-api\n[Pharma API] Request URL: /pharma-api/api/v1/AssessmentStatus/15755406?includeDependents=TRUE\u0026pageIndex=0\u0026pageSize=25\n[Pharma API] Token obtained, making request...\n[Pharma API] Response Status: 200 - URL: /pharma-api/api/v1/AssessmentStatus/15755406?includeDependents=TRUE\u0026pageIndex=0\u0026pageSize=25\n"
+                        }
+                    ]
+}

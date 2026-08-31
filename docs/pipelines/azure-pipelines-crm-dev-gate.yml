@@ -1,0 +1,169 @@
+# =============================================================================
+# CRM Dev -> SIT Automated Quality Gate  (DRAFT)
+# =============================================================================
+# Target repository : greenshieldcanada / GSH-CRM / automation-scripts
+# Suggested path    : pipelines/azure-pipelines-crm-dev-gate.yml
+#
+# Purpose:
+#   Run the CRM Playwright gate suite (API + Smoke) against CRM DEV after a
+#   code change is deployed to Dev. Promotion to SIT is allowed ONLY when the
+#   gate stage passes. This is the hard quality gate that is missing today
+#   (the existing Playwright_UI_Regression.yml is manual and non-blocking).
+#
+# Prerequisites to create before first run:
+#   1. Variable group  : Playwright-CRM-DEV-R1   (mirror the SIT group, DEV values)
+#        BASE_URL, CONTACT360_APP_ID, ENV=dev, USL_API_BASE_URL, USL_TENENTID,
+#        USL_CLIENTID, USL_CLIENTSECRET, USL_CLIENTSCOPE,
+#        TEST_USER_EMAIL/PASSWORD, CCA_/READONLY_/COORDINATOR_/SUPERVISOR_ *
+#   2. package.json script:
+#        "test:dev": "cross-env ENV=dev npx playwright test"
+#   3. lib/config supports ENV=dev (env.ts + .env.dev).
+#   4. Environment "CRM-SIT" defined in ADO with the required approvals/checks
+#      so the promotion stage respects change-control.
+#
+# NOTE: The SIT deployment step is intentionally a placeholder. Replace the
+#       "PromoteToSIT" job body with your actual CRM solution import / release
+#       trigger (or set this pipeline as a required check on the deploy release).
+# =============================================================================
+
+name: CRM_Dev_Gate_$(Date:yyyyMMdd)$(Rev:.r)
+
+parameters:
+  - name: gateSuite
+    displayName: 'Gate suite (fast, deterministic)'
+    type: string
+    default: 'tests/API tests/Smoke'
+  - name: workers
+    displayName: 'Parallel workers'
+    type: number
+    default: 4
+
+# Gate on merges to the mainline of the automation/CRM change.
+trigger:
+  branches:
+    include:
+      - enh-automation
+      - main
+
+pr: none
+
+stages:
+  # ---------------------------------------------------------------------------
+  # STAGE 1 - Quality gate: run API + Smoke against CRM DEV. BLOCKING.
+  # ---------------------------------------------------------------------------
+  - stage: DevQualityGate
+    displayName: 'CRM Dev Quality Gate (API + Smoke)'
+    jobs:
+      - job: RunGateSuite
+        displayName: 'Run gate suite on CRM DEV'
+        timeoutInMinutes: 60
+        pool:
+          vmImage: 'ubuntu-latest'
+        variables:
+          - group: Playwright-CRM-DEV-R1
+        steps:
+          - checkout: self
+            clean: true
+
+          - task: UseNode@1
+            inputs:
+              version: '18.x'
+            displayName: 'Install Node.js'
+
+          - script: npm ci
+            displayName: 'Install dependencies'
+
+          - script: npx playwright install --with-deps
+            displayName: 'Install Playwright browsers'
+
+          - script: |
+              mkdir -p lib/config
+              cat > lib/config/.env.dev << EOF
+              BASE_URL=$(BASE_URL)
+              CONTACT360_APP_ID=$(CONTACT360_APP_ID)
+              ENV=dev
+              USL_API_BASE_URL=$(USL_API_BASE_URL)
+              USL_TENENTID=$(USL_TENENTID)
+              USL_CLIENTID=$(USL_CLIENTID)
+              USL_CLIENTSECRET=$(USL_CLIENTSECRET)
+              USL_CLIENTSCOPE=$(USL_CLIENTSCOPE)
+              TEST_USER_EMAIL=$(TEST_USER_EMAIL)
+              TEST_USER_PASSWORD=$(TEST_USER_PASSWORD)
+              CCA_USER_EMAIL=$(CCA_USER_EMAIL)
+              CCA_USER_PASSWORD=$(CCA_USER_PASSWORD)
+              READONLY_USER_EMAIL=$(READONLY_USER_EMAIL)
+              READONLY_USER_PASSWORD=$(READONLY_USER_PASSWORD)
+              COORDINATOR_USER_EMAIL=$(COORDINATOR_USER_EMAIL)
+              COORDINATOR_USER_PASSWORD=$(COORDINATOR_USER_PASSWORD)
+              SUPERVISOR_USER_EMAIL=$(SUPERVISOR_USER_EMAIL)
+              SUPERVISOR_USER_PASSWORD=$(SUPERVISOR_USER_PASSWORD)
+              EOF
+              echo "Created .env.dev with $(wc -l < lib/config/.env.dev) variables"
+            displayName: 'Create .env.dev from DEV variable group'
+            env:
+              BASE_URL: $(BASE_URL)
+              CONTACT360_APP_ID: $(CONTACT360_APP_ID)
+              USL_API_BASE_URL: $(USL_API_BASE_URL)
+              USL_TENENTID: $(USL_TENENTID)
+              USL_CLIENTID: $(USL_CLIENTID)
+              USL_CLIENTSECRET: $(USL_CLIENTSECRET)
+              USL_CLIENTSCOPE: $(USL_CLIENTSCOPE)
+              TEST_USER_EMAIL: $(TEST_USER_EMAIL)
+              TEST_USER_PASSWORD: $(TEST_USER_PASSWORD)
+              CCA_USER_EMAIL: $(CCA_USER_EMAIL)
+              CCA_USER_PASSWORD: $(CCA_USER_PASSWORD)
+              READONLY_USER_EMAIL: $(READONLY_USER_EMAIL)
+              READONLY_USER_PASSWORD: $(READONLY_USER_PASSWORD)
+              COORDINATOR_USER_EMAIL: $(COORDINATOR_USER_EMAIL)
+              COORDINATOR_USER_PASSWORD: $(COORDINATOR_USER_PASSWORD)
+              SUPERVISOR_USER_EMAIL: $(SUPERVISOR_USER_EMAIL)
+              SUPERVISOR_USER_PASSWORD: $(SUPERVISOR_USER_PASSWORD)
+
+          # Run the gate suite. NO continueOnError -> a test failure fails the job.
+          - script: |
+              export ENV=dev
+              export HEADLESS=true
+              export WORKERS=${{ parameters.workers }}
+              npx playwright test ${{ parameters.gateSuite }} --project=chromium
+            displayName: 'Run gate suite (API + Smoke) on CRM DEV'
+
+          # Hard gate: fail the task if any test failed.
+          - task: PublishTestResults@2
+            displayName: 'Publish JUnit results (blocking)'
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: 'test-results/junit.xml'
+              testRunTitle: 'CRM Dev Gate - API + Smoke'
+              failTaskOnFailedTests: true
+              mergeTestResults: true
+            condition: succeededOrFailed()
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Publish Playwright report'
+            inputs:
+              targetPath: 'playwright-report'
+              artifact: 'crm-dev-gate-report'
+              publishLocation: 'pipeline'
+            condition: succeededOrFailed()
+
+  # ---------------------------------------------------------------------------
+  # STAGE 2 - Promote to SIT. Runs ONLY if the gate stage succeeded.
+  # ---------------------------------------------------------------------------
+  - stage: PromoteToSIT
+    displayName: 'Promote CRM change to SIT'
+    dependsOn: DevQualityGate
+    condition: succeeded()
+    jobs:
+      - deployment: DeploySIT
+        displayName: 'Deploy to CRM SIT (gated)'
+        environment: 'CRM-SIT'   # add approvals/checks on this environment
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: |
+                    echo "Dev gate passed. Trigger CRM SIT deployment here."
+                    echo "Replace with: solution import / release trigger / pac CLI."
+                  displayName: 'Promote to SIT (placeholder)'

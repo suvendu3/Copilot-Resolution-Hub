@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "06aa1475b2498e9c81c0-a5e1ed75490bbb2c9ab1",
+    "title":  "[@regression] INT-199 Provincial Pricing Info batch run",
+    "file":  "integration/service_360/INT-199_Provincial_Pricing_info.test.ts",
+    "line":  75,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  151,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[row 0] Correlation ID",
+                            "contentType":  "text/plain",
+                            "body":  "corr-1784814418410-1191"
+                        },
+                        {
+                            "name":  "[row 0] SOR URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/benefits-api/v1/procedures/53100/pricing?provinceCode=ON\u0026benefitCategoryId=70238\u0026providerTypeCode=1002"
+                        },
+                        {
+                            "name":  "[row 0] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/claims/procedures/53100/pricing?province=ON\u0026benefitCategoryId=70238\u0026providerType=1002"
+                        },
+                        {
+                            "name":  "[row 0] SOR Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"year\": \"0\",\n    \"feeStartRange\": 1,\n    \"feeEndRange\": 1495.37,\n    \"reasonableAndCustomary\": 0,\n    \"units\": \"ITEM\",\n    \"provincialPaidAmount\": 1203.13,\n    \"rateTypeCode\": \"DA\",\n    \"rate\": 82.66,\n    \"effectiveDate\": \"1957-01-01T00:00:00\",\n    \"expiryDate\": null\n  },\n  {\n    \"year\": \"0\",\n    \"feeStartRange\": 1,\n    \"feeEndRange\": 1495.37,\n    \"reasonableAndCustomary\": 0,\n    \"units\": \"ITEM\",\n    \"provincialPaidAmount\": 1203.13,\n    \"rateTypeCode\": \"MO\",\n    \"rate\": 2514.24,\n    \"effectiveDate\": \"1957-01-01T00:00:00\",\n    \"expiryDate\": null\n  }\n]"
+                        },
+                        {
+                            "name":  "[row 0] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"pricingInformation\": [\n      {\n        \"year\": \"0\",\n        \"feeStartRange\": 1,\n        \"feeEndRange\": 1495.37,\n        \"reasonableAndCustomary\": 0,\n        \"units\": \"ITEM\",\n        \"provincialPaidAmount\": 1203.13,\n        \"rateType\": \"DA\",\n        \"rate\": 82.66,\n        \"effectiveDate\": \"1957-01-01T00:00:00\",\n        \"expiryDate\": null\n      },\n      {\n        \"year\": \"0\",\n        \"feeStartRange\": 1,\n        \"feeEndRange\": 1495.37,\n        \"reasonableAndCustomary\": 0,\n        \"units\": \"ITEM\",\n        \"provincialPaidAmount\": 1203.13,\n        \"rateType\": \"MO\",\n        \"rate\": 2514.24,\n        \"effectiveDate\": \"1957-01-01T00:00:00\",\n        \"expiryDate\": null\n      }\n    ]\n  },\n  \"errors\": null\n}"
+                        }
+                    ]
+}

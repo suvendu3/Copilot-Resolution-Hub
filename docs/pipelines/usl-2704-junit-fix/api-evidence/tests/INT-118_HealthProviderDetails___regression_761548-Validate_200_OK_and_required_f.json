@@ -1,0 +1,33 @@
+﻿{
+    "testId":  "6a632e1e4ad8da740824-b1abde3ce10b22351c6a",
+    "title":  "[@regression] 761548-Validate 200 OK and required fields batch run",
+    "file":  "integration/service_360/INT-118_HealthProviderDetails.test.ts",
+    "line":  30,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  407,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[row 0] SOR Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"data\": [\n    {\n      \"governing_jurisdiction\": \"Ontario\",\n      \"governing_body\": \"er\",\n      \"license_number\": \"123321\"\n    },\n    {\n      \"governing_jurisdiction\": \"Nova Scotia\",\n      \"governing_body\": \"NS\",\n      \"license_number\": \"09090909\"\n    }\n  ],\n  \"meta\": {\n    \"count\": 2,\n    \"provider_id\": \"140817c0-8406-4aaf-909b-d41efb2659f5\"\n  }\n}"
+                        },
+                        {
+                            "name":  "[row 0] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"data\": [\n      {\n        \"governingJurisdiction\": \"Ontario\",\n        \"governingBody\": \"er\",\n        \"licenseNumber\": \"123321\"\n      },\n      {\n        \"governingJurisdiction\": \"Nova Scotia\",\n        \"governingBody\": \"NS\",\n        \"licenseNumber\": \"09090909\"\n      }\n    ]\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 0] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/admin/api/v1/health/provider/140817c0-8406-4aAf-909b-d41efb2659f5/getgoverningbodies"
+                        },
+                        {
+                            "name":  "[row 0] SOR URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api.inkblottherapy.com/api/crm/v1/providers/140817c0-8406-4aaf-909b-d41efb2659f5/governing_bodies"
+                        }
+                    ]
+}

@@ -1,0 +1,28 @@
+﻿{
+    "testId":  "c520b8eb22d791b9f52a-62b7abd7d706e957227f",
+    "title":  "[@regression] 717151-Verify POST API returns 204 No Content for valid input batch run",
+    "file":  "integration/service_360/INT-161_Generate_Registration_Key.test.ts",
+    "line":  37,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  186,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[row 0] Request Body",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"providerId\": 158109,\n  \"registrationKeyId\": 1227760\n}"
+                        },
+                        {
+                            "name":  "[row 0] USL",
+                            "contentType":  "text/plain",
+                            "body":  "status=204 body=\"\"\nhttps://usl-sit.onlineweb.ca/service360/webaccount/api/v1/registrations/associateregistrationkey"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-161] row=0 USL status=204 bodyLen=0\n"
+                        }
+                    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "529b19ee966afd5039b9-868cc98fe778cf7d1ab6",
+    "title":  "[@regression] INT-127 Plan Participant Indicators â€” batch GET all scenarios",
+    "file":  "integration/service_360/INT-127_ParticipantIndicators.test.ts",
+    "line":  82,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  5842,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL_DEP_13647360_2 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"participantIndicators\": {\n        \"hasException\": false,\n        \"hasCondition\": false,\n        \"hasDentalAccident\": false,\n        \"hasWorkplaceInjury\": false,\n        \"hasGrants\": false,\n        \"hasMotorVehicleAccidents\": false\n      }\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL_DEP_13647360_2 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/getplanparticipantindicators?memberPlanId=13647360\u0026dependentNo=2"
+                        },
+                        {
+                            "name":  "SOR_DEP_13647360_2 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"participantExceptionIndicator\": false,\n  \"participantConditionIndicator\": false,\n  \"participantGrantIndicator\": false,\n  \"participantMVAAccidentIndicator\": false,\n  \"participantWSIBAccidentIndicator\": false,\n  \"participantDentalAccidentIndicator\": false\n}"
+                        },
+                        {
+                            "name":  "SOR_DEP_13647360_2 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/13647360/dependents/2/indicators"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-127] Loaded 3 row(s) from sheet \"INT-127_ParticipantIndicators\"\n[USL] scenario=MEMBER_DEPENDENT status=200 url=https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/getplanparticipantindicators?memberPlanId=13647360\u0026dependentNo=2\nUSL body: {\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"participantIndicators\": {\n        \"hasException\": false,\n        \"hasCondition\": false,\n        \"hasDentalAccident\": false,\n        \"hasWorkplaceInjury\": false,\n        \"hasGrants\": false,\n        \"hasMotorVehicleAccidents\": false\n      }\n    }\n  ],\n  \"errors\": null\n}\n[SOR dependent] status=200 url=https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/13647360/dependents/2/indicators\nSOR dependent body: {\n  \"participantExceptionIndicator\": false,\n  \"participantConditionIndicator\": false,\n  \"participantGrantIndicator\": false,\n  \"participantMVAAccidentIndicator\": false,\n  \"participantWSIBAccidentIndicator\": false,\n  \"participantDentalAccidentIndicator\": false\n}\n[USL] scenario=MEMBER_ONLY status=200 url=https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/getplanparticipantindicators?memberPlanId=1774113\nUSL body: {\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"memberPlanIndicators\": {\n        \"isPersonalSpendingAccount\": false,\n        \"isAccountBalance\": false,\n        \"isHealthCareSpendingAccount\": true,\n        \"isHealthCareSpendingAccountAutoCoordinate\": false,\n        \"isWebAccount\": false,\n        \"isDirectDeposit\": false\n      }\n    }\n  ],\n  \"errors\": null\n}\n[SOR member] status=200 url=https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/1774113/indicators\nSOR member body: {\n  \"hcsaIndicator\": true,\n  \"hcsaContributedIndicator\": false,\n  \"participantPSAIndicator\": false,\n  \"participantAccountBalanceIndicator\": false,\n  \"webIndicator\": false,\n  \"directDepositIndicator\": false\n}\n[SKIP] MEMBER_ONLY[1774113].hasExceptionâ†”participantExceptionIndicator â€” not present in USL or SOR\n[SKIP] MEMBER_ONLY[1774113].hasConditionâ†”participantConditionIndicator â€” not present in USL or SOR\n[SKIP] MEMBER_ONLY[1774113].hasGrantsâ†”participantGrantIndicator â€” not present in USL or SOR\n[SKIP] MEMBER_ONLY[1774113].hasMotorVehicleAccidentsâ†”participantMVAAccidentIndicator â€” not present in USL or SOR\n[SKIP] MEMBER_ONLY[1774113].hasWorkplaceInjuryâ†”participantWSIBAccidentIndicator â€” not present in USL or SOR\n[SKIP] MEMBER_ONLY[1774113].hasDentalAccidentâ†”participantDentalAccidentIndicator â€” not present in USL or SOR\n[USL] scenario=PROVIDER status=200 url=https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/getplanparticipantindicators?providerId=3611190\u0026orgCode=GSC\nUSL body: {\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"providerIndicators\": {\n        \"accountBalanceIndicator\": false,\n        \"providerOLWebAccountIndicator\": false\n      }\n    }\n  ],\n  \"errors\": null\n}\n[SOR provider] status=200 url=https://api-qa.onlineweb.ca/providers-api/v1/providers/3611190/indicators?orgCode=GSC\nSOR provider body: {\n  \"providerAccountBalanceIndicator\": false,\n  \"providerWebIndicator\": false,\n  \"providerEquIPPIndicator\": false\n}\n"
+                        }
+                    ]
+}

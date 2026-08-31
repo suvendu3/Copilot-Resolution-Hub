@@ -1,0 +1,18 @@
+﻿{
+    "testId":  "fcdccaea62616f16c545-573f359015405313c5f7",
+    "title":  "[@regression] [784601]Verify API response for valid required parameters",
+    "file":  "integration/service_360/INT-185_planOfferingStructure.test.ts",
+    "line":  30,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  497,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Row Number  : 0\n"
+                        }
+                    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "f0942f94afe94e6bb470-b4f0624416ee8173e70e",
+    "title":  "[@regression] [@smoke] [774807] Verify API response for valid required parameters",
+    "file":  "integration/service_360/INT-119H_ProfileParticipantDetails.test.ts",
+    "line":  25,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  491,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [dheProfileId=8f58249c-b9ed-40a1-bf95-cceb6078546f] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"careTeamInfo\": [\n      {\n        \"careTeamProviderId\": \"224ad5b2-2fdc-43e9-b30f-4f244e4631a6\",\n        \"careTeamProviderName\": \"QA Miguelcp1\",\n        \"careTeamProviderType\": \"couples\"\n      },\n      {\n        \"careTeamProviderId\": \"e91de809-c1ab-447e-b99d-14bdb7e8dd00\",\n        \"careTeamProviderName\": \"Miguel QaCP5special\",\n        \"careTeamProviderType\": \"generic\"\n      },\n      {\n        \"careTeamProviderId\": \"e91de809-c1ab-447e-b99d-14bdb7e8dd00\",\n        \"careTeamProviderName\": \"Miguel QaCP5special\",\n        \"careTeamProviderType\": \"generic\"\n      },\n      {\n        \"careTeamProviderId\": \"53d2fd03-2329-4bb9-9564-1edbd51076df\",\n        \"careTeamProviderName\": \"Miguel QAcp3\",\n        \"careTeamProviderType\": \"individual\"\n      },\n      {\n        \"careTeamProviderId\": \"ee2f9187-d167-4ee1-8342-32b8c4303d87\",\n        \"careTeamProviderName\": \"anirudh R spj28\",\n        \"careTeamProviderType\": \"generic\"\n      },\n      {\n        \"careTeamProviderId\": \"ee2f9187-d167-4ee1-8342-32b8c4303d87\",\n        \"careTeamProviderName\": \"anirudh R spj28\",\n        \"careTeamProviderType\": \"generic\"\n      },\n      {\n        \"careTeamProviderId\": \"e91de809-c1ab-447e-b99d-14bdb7e8dd00\",\n        \"careTeamProviderName\": \"Miguel QaCP5special\",\n        \"careTeamProviderType\": \"generic\"\n      }\n    ]\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [dheProfileId=8f58249c-b9ed-40a1-bf95-cceb6078546f] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/admin/api/v1/health/plan-members/8f58249c-b9ed-40a1-bf95-cceb6078546f/care_team"
+                        },
+                        {
+                            "name":  "SOR [dheProfileId=8f58249c-b9ed-40a1-bf95-cceb6078546f] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"data\": {\n    \"providers\": [\n      {\n        \"provider_id\": \"224ad5b2-2fdc-43e9-b30f-4f244e4631a6\",\n        \"name\": \"QA Miguelcp1\",\n        \"generic_role_name\": null,\n        \"provider_type\": \"couples\",\n        \"clinical_program_category_name\": null\n      },\n      {\n        \"provider_id\": \"e91de809-c1ab-447e-b99d-14bdb7e8dd00\",\n        \"name\": \"Miguel QaCP5special\",\n        \"generic_role_name\": \"Fitness coach\",\n        \"provider_type\": \"generic\",\n        \"clinical_program_category_name\": \"Specialized Clinical Services\"\n      },\n      {\n        \"provider_id\": \"e91de809-c1ab-447e-b99d-14bdb7e8dd00\",\n        \"name\": \"Miguel QaCP5special\",\n        \"generic_role_name\": \"Physiotherapist\",\n        \"provider_type\": \"generic\",\n        \"clinical_program_category_name\": \"Specialized Clinical Services\"\n      },\n      {\n        \"provider_id\": \"53d2fd03-2329-4bb9-9564-1edbd51076df\",\n        \"name\": \"Miguel QAcp3\",\n        \"generic_role_name\": null,\n        \"provider_type\": \"individual\",\n        \"clinical_program_category_name\": null\n      },\n      {\n        \"provider_id\": \"ee2f9187-d167-4ee1-8342-32b8c4303d87\",\n        \"name\": \"anirudh R spj28\",\n        \"generic_role_name\": \"Family physician\",\n        \"provider_type\": \"generic\",\n        \"clinical_program_category_name\": \"Life Transitions (Life)\"\n      },\n      {\n        \"provider_id\": \"ee2f9187-d167-4ee1-8342-32b8c4303d87\",\n        \"name\": \"anirudh R spj28\",\n        \"generic_role_name\": \"Nutritionist\",\n        \"provider_type\": \"generic\",\n        \"clinical_program_category_name\": \"Health Coaching (Health)\"\n      },\n      {\n        \"provider_id\": \"e91de809-c1ab-447e-b99d-14bdb7e8dd00\",\n        \"name\": \"Miguel QaCP5special\",\n        \"generic_role_name\": \"Life coach\",\n        \"provider_type\": \"generic\",\n        \"clinical_program_category_name\": \"Life Transitions (Life)\"\n      }\n    ]\n  }\n}"
+                        },
+                        {
+                            "name":  "SOR [dheProfileId=8f58249c-b9ed-40a1-bf95-cceb6078546f] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api.inkblottherapy.com/api/crm/v1/plan_members/8f58249c-b9ed-40a1-bf95-cceb6078546f/care_team"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Row Number  : 0\nComparing normalized responses...\nUSL and System matched.\n"
+                        }
+                    ]
+}

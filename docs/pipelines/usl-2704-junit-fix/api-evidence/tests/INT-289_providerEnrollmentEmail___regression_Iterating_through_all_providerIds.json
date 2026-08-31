@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "8650c9b86ab3771f3efd-4fca17c9c1ff32b55e3f",
+    "title":  "[@regression] Iterating through all providerIds",
+    "file":  "integration/service_360/INT-289_providerEnrollmentEmail.test.ts",
+    "line":  14,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  4741,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [providerId=2897777] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"temporaryPassword\": \"NraQ#7wDg\u00262F\"\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [providerId=2897777] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/webaccount/api/v1/webaccount/2897777/resetpassword"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [providerId=2897777] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"temporaryPassword\": \"6CQ%!8cfXptf\"\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [providerId=2897777] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/provider-profile-api/api/v1/providers/2897777/password/reset"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e providerId=2897777\n"
+                        }
+                    ]
+}

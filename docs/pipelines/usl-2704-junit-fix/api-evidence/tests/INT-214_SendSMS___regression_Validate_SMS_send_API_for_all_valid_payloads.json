@@ -1,0 +1,23 @@
+﻿{
+    "testId":  "9f042049650d8f196633-8570ffd1aa62147064f2",
+    "title":  "[@regression] Validate SMS send API for all valid payloads",
+    "file":  "integration/ccaas/INT-214_SendSMS.test.ts",
+    "line":  33,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  3543,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [payload=1] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/admin/api/v1/sms/send/notification"
+                        },
+                        {
+                            "name":  "SOR [payload=1] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/gsc-notifications-api-b2c/api/v1/Sms/send/otp"
+                        }
+                    ]
+}

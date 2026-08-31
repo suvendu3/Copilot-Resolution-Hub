@@ -1,0 +1,68 @@
+﻿{
+    "testId":  "56ab55414f17e63d52a2-367aabee0718e9f97ea6",
+    "title":  "[@regression] Iterating through all planMemberIds",
+    "file":  "integration/service_360/INT-143_retrieveHCSAPlanInformation.test.ts",
+    "line":  31,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  1797,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [planMemberId=721920] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"hcsaAccount\": [\n      {\n        \"benefitYear\": 2026,\n        \"benefitYearStart\": \"2026-01-01T00:00:00\",\n        \"payPriorBenefitYear\": 2026,\n        \"rollingType\": \"Rolling Contributions\",\n        \"submissionGracePeriod\": 90,\n        \"terminationGracePeriod\": 30,\n        \"fullAutoCoordinate\": \"No\",\n        \"allContributionAllocation\": \"Yes\",\n        \"dependentEligibility\": \"CRA Guidelines as per Income Tax Act\",\n        \"payPriorCoverageIndicator\": \"No\",\n        \"webHcsaOptionCode\": \"No\",\n        \"webHcsaPlanSponsorOptionIndicator\": \"Yes\",\n        \"webHcsaBillingDivisionOptionIndicator\": \"Yes\",\n        \"hcsaOptionLevel\": \"Billing Division\",\n        \"frequency\": \"Annually\",\n        \"frequency2\": \"First\",\n        \"frequency3\": \"Monday\",\n        \"frequency4\": \"July\",\n        \"nextIssueDate\": \"2026-07-27T00:00:00\",\n        \"effectiveDate\": \"2017-07-01T00:00:00\",\n        \"expiryDate\": null,\n        \"isAutoCoordinate\": \"No\",\n        \"planMemberAutoCoordinate\": []\n      }\n    ]\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [planMemberId=721920] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plan-members/721920/plansponsorcode/UOFT/billingdivisionnumber/26096/spending-accounts/hcsa?includeHistoricalData=true\u0026includeFutureData=true\u0026includeDeletedData=true"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR1 [planMemberId=721920] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"benefitYear\": 2026,\n    \"currency\": \"CAN\",\n    \"rollingType\": \"CO\",\n    \"startDate\": \"2026-01-01T00:00:00\",\n    \"endDate\": \"2026-12-31T00:00:00\",\n    \"useByDate\": \"2027-12-31T00:00:00\",\n    \"contributionAmount\": 900,\n    \"benefitMonthDay\": \"0101\",\n    \"submissionGracePeriod\": \"90\",\n    \"submissionTerminationPeriod\": \"30\",\n    \"depEligibilityCode\": \"CR\",\n    \"hcsaFullAutoCoordinateIndicator\": false,\n    \"contributionAllocationIndicator\": true,\n    \"payPriorCoverageIndicator\": false\n  }\n]"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR1 [planMemberId=721920] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/721920/spending-accounts/hcsa"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR2 [planMemberId=721920] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"benefitYear\": 2026,\n    \"benefitMonthDay\": \"0701\",\n    \"statementHeading\": {\n      \"en\": \"HCSA FACULTY LIBRARIANS\",\n      \"fr\": \"Compte de frais pour soins de santÃ©\"\n    },\n    \"hcsaOptionLevel\": \"Billing Division\",\n    \"webHcsaOptionCode\": \"No\",\n    \"hcsaOptionIndicator\": \"Yes\",\n    \"summaryCycleCode\": \"8\",\n    \"dayCode\": 2,\n    \"monthCode\": 7,\n    \"dowPrefix\": \"1\",\n    \"nextIssueDate\": \"2026-07-27T00:00:00\",\n    \"effectiveDate\": \"2017-07-01T00:00:00\",\n    \"expiryDate\": null,\n    \"deletedDate\": null,\n    \"deletedBy\": null,\n    \"updatedDate\": null,\n    \"updatedBy\": null\n  }\n]"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR2 [planMemberId=721920] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-sponsors-api/v1/plan-sponsors/UOFT/billing-divisions/26096/hcsa-options?includeHistoricalData=true\u0026includeFutureData=true\u0026includeDeletedData=true"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR3 [planMemberId=721920] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"benefitCategoryTypeCode\": \"C\",\n    \"benefitCategoryId\": 104070,\n    \"description\": {\n      \"en\": \"Audio\",\n      \"fr\": \"Soins auditifs\"\n    },\n    \"isAutoCoordinated\": false,\n    \"startDate\": null,\n    \"endDate\": null,\n    \"updatedBy\": null\n  },\n  {\n    \"benefitCategoryTypeCode\": \"C\",\n    \"benefitCategoryId\": 100005,\n    \"description\": {\n      \"en\": \"Dental\",\n      \"fr\": \"Soins dentaires\"\n    },\n    \"isAutoCoordinated\": false,\n    \"startDate\": null,\n    \"endDate\": null,\n    \"updatedBy\": null\n  },\n  {\n    \"benefitCategoryTypeCode\": \"C\",\n    \"benefitCategoryId\": 100006,\n    \"description\": {\n      \"en\": \"Drug\",\n      \"fr\": \"MÃ©dicament\"\n    },\n    \"isAutoCoordinated\": false,\n    \"startDate\": null,\n    \"endDate\": null,\n    \"updatedBy\": null\n  },\n  {\n    \"benefitCategoryTypeCode\": \"C\",\n    \"benefitCategoryId\": 100007,\n    \"description\": {\n      \"en\": \"EHS\",\n      \"fr\": \"Services de santÃ© complÃ©mentaires\"\n    },\n    \"isAutoCoordinated\": false,\n    \"startDate\": null,\n    \"endDate\": null,\n    \"updatedBy\": null\n  },\n  {\n    \"benefitCategoryTypeCode\": \"C\",\n    \"benefitCategoryId\": 104085,\n    \"description\": {\n      \"en\": \"Travel\",\n      \"fr\": \"Voyage\"\n    },\n    \"isAutoCoordinated\": false,\n    \"startDate\": null,\n    \"endDate\": null,\n    \"updatedBy\": null\n  },\n  {\n    \"benefitCategoryTypeCode\": \"C\",\n    \"benefitCategoryId\": 104061,\n    \"description\": {\n      \"en\": \"Vision\",\n      \"fr\": \"Soins de la vue\"\n    },\n    \"isAutoCoordinated\": false,\n    \"startDate\": null,\n    \"endDate\": null,\n    \"updatedBy\": null\n  }\n]"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR3 [planMemberId=721920] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/benefits-api/v1/plan-members/721920/hcsa-benefit-coordinations"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR4 [planMemberId=721920] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"hcsaType\": \"CO\",\n  \"hcsaHeading\": {\n    \"en\": \"Health Care Spending Account\",\n    \"fr\": \"Compte de frais pour soins de santÃ©\"\n  },\n  \"isAutoCoordinate\": false,\n  \"hasLineOfBusinessSelected\": true\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR4 [planMemberId=721920] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/721920/spending-accounts/hcsa/attributes"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e planMemberId=721920, planSponsorCode=UOFT and billingDivisionNo=26096\nresult true\n\n=\u003e planMemberId=162541, planSponsorCode=UOFT and billingDivisionNo=26096\nresult true\n"
+                        }
+                    ]
+}

@@ -1,0 +1,18 @@
+﻿{
+    "testId":  "c2eeb43ab3dc21f6ebe3-bd7d203738a7b73de455",
+    "title":  "[@regression] TC-794570: Edit Permissions for Plan Member",
+    "file":  "integration/service_360/INT-225_memberPlan-EditPermissions.test.ts",
+    "line":  21,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  596,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "=\u003e\u003e Calling POST API to add permission for planMemberId=18312469\n{\n  \"isSuccess\": true,\n  \"statusCode\": 201,\n  \"message\": \"Permission added successfully\",\n  \"data\": {\n    \"authorizedPersonId\": 1024824,\n    \"responseCode\": \"0\",\n    \"responseMessage\": \"Permission added successfully\"\n  },\n  \"errors\": null\n}\nExtracted authorizedPersonId: 1024824\n=\u003e\u003e Calling GET API to verify record is created for planMemberId=18312469\nVerified: authorizedPersonId 1024824 exists in the created records\n=\u003e\u003e Calling POST API to edit permission for planMemberId=18312469\n=\u003e\u003e Calling GET API to verify edited record for authorizedPersonId=1024824\nAssertion: authorizedPersonId matches: 1024824 === 1024824\nAssertion: firstName matches: UpdatedFirstName === UpdatedFirstName\nAssertion: lastName matches: UpdatedLastName === UpdatedLastName\nAssertion: relationship matches: UpdatedRelationship === UpdatedRelationship\nVerified edited fields for authorizedPersonId 1024824\n=\u003e\u003e Calling DELETE API to remove permission for planMemberId=18312469, authorizedPersonId=1024824\n"
+                        }
+                    ]
+}

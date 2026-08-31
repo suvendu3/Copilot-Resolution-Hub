@@ -1,0 +1,28 @@
+﻿{
+    "testId":  "c02928b0d8d032343069-9003dd12ec50b0b39026",
+    "title":  "[@regression] INT-181 Edit ID Card â€” USL PATCH memberaddress",
+    "file":  "integration/service_360/INT-181_Edit_ID_Card.test.ts",
+    "line":  76,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  16628,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL_PATCH_1220303 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"dependent\": \"00\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"01\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"02\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"03\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"04\",\n      \"apiResponse\": 204\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL_PATCH_1220303 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/address/memberaddress/1220303"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-181] Loaded 2 member row(s) from sheet \"INT-181_Edit_ID_Card\"\n[INT-181] USL PATCH memberId=1220303 status=200 url=https://usl-sit.onlineweb.ca/service360/plans/api/v1/address/memberaddress/1220303\n[INT-181] USL PATCH body: {\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"dependent\": \"00\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"01\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"02\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"03\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"04\",\n      \"apiResponse\": 204\n    }\n  ],\n  \"errors\": null\n}\n[INT-181] dependent=00 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=01 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=02 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=03 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=04 â†’ apiResponse=204 (expected 2xx)\n[INT-181] memberId=1220303 USL processed dependents: [\"00\",\"01\",\"02\",\"03\",\"04\"]\n[INT-181] USL PATCH memberId=1752016 status=200 url=https://usl-sit.onlineweb.ca/service360/plans/api/v1/address/memberaddress/1752016\n[INT-181] USL PATCH body: {\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"dependent\": \"00\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"01\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"02\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"03\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"04\",\n      \"apiResponse\": 204\n    },\n    {\n      \"dependent\": \"05\",\n      \"apiResponse\": 204\n    }\n  ],\n  \"errors\": null\n}\n[INT-181] dependent=00 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=01 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=02 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=03 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=04 â†’ apiResponse=204 (expected 2xx)\n[INT-181] dependent=05 â†’ apiResponse=204 (expected 2xx)\n[INT-181] memberId=1752016 USL processed dependents: [\"00\",\"01\",\"02\",\"03\",\"04\",\"05\"]\n"
+                        }
+                    ]
+}

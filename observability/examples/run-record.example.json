@@ -1,0 +1,130 @@
+{
+  "run_id": "AB#877491",
+  "work_item_id": "877491",
+  "system": "CRM",
+  "started_at": "2026-08-31T09:00:00Z",
+  "ended_at": "2026-08-31T09:00:41Z",
+  "attributes": {
+    "mode": "defect",
+    "source": "ado",
+    "priority": "high"
+  },
+  "spans": [
+    {
+      "name": "supervisor.enrich",
+      "agent": "supervisor-agent",
+      "stage": "input",
+      "started_at": "2026-08-31T09:00:00Z",
+      "ended_at": "2026-08-31T09:00:03Z",
+      "status": "ok",
+      "attributes": { "mcp": "ado", "work_item_type": "Bug" },
+      "children": [
+        {
+          "name": "mcp.ado.get_work_item",
+          "agent": "supervisor-agent",
+          "stage": "evidence",
+          "started_at": "2026-08-31T09:00:01Z",
+          "ended_at": "2026-08-31T09:00:02Z",
+          "status": "ok",
+          "attributes": { "mcp": "ado", "read_only": true }
+        }
+      ]
+    },
+    {
+      "name": "guardrail.input",
+      "agent": "supervisor-agent",
+      "stage": "input",
+      "started_at": "2026-08-31T09:00:03Z",
+      "ended_at": "2026-08-31T09:00:04Z",
+      "status": "ok",
+      "attributes": {
+        "guardrail_check": "prompt_injection,scope,secret_pii",
+        "decision": "pass"
+      }
+    },
+    {
+      "name": "route.decision",
+      "agent": "supervisor-agent",
+      "stage": "route",
+      "started_at": "2026-08-31T09:00:04Z",
+      "ended_at": "2026-08-31T09:00:05Z",
+      "status": "ok",
+      "attributes": { "decision": "CRM", "sub_agent": "d365-agent" }
+    },
+    {
+      "name": "maker.propose",
+      "agent": "maker-agent",
+      "stage": "propose",
+      "started_at": "2026-08-31T09:00:05Z",
+      "ended_at": "2026-08-31T09:00:22Z",
+      "status": "ok",
+      "attributes": {
+        "model": "gpt-5.4-mini",
+        "complexity": "medium",
+        "evidence_count": 4
+      }
+    },
+    {
+      "name": "checker.verdict",
+      "agent": "checker-agent",
+      "stage": "check",
+      "started_at": "2026-08-31T09:00:22Z",
+      "ended_at": "2026-08-31T09:00:30Z",
+      "status": "ok",
+      "attributes": { "verdict": "rejected", "evidence_count": 4 },
+      "events": [
+        {
+          "name": "checker.rejection",
+          "timestamp": "2026-08-31T09:00:30Z",
+          "attributes": { "reason": "weak_grounding", "attempt": 1 }
+        }
+      ]
+    },
+    {
+      "name": "model.escalation",
+      "agent": "supervisor-agent",
+      "stage": "route",
+      "started_at": "2026-08-31T09:00:30Z",
+      "ended_at": "2026-08-31T09:00:31Z",
+      "status": "ok",
+      "attributes": { "from_model": "gpt-5.4-mini", "to_model": "gpt-5.4", "complexity": "high" },
+      "events": [
+        {
+          "name": "escalation.trigger",
+          "timestamp": "2026-08-31T09:00:31Z",
+          "attributes": { "trigger": "consecutive_rejection" }
+        }
+      ]
+    },
+    {
+      "name": "maker.propose.retry",
+      "agent": "maker-agent",
+      "stage": "propose",
+      "started_at": "2026-08-31T09:00:31Z",
+      "ended_at": "2026-08-31T09:00:37Z",
+      "status": "ok",
+      "attributes": { "model": "gpt-5.4", "complexity": "high", "evidence_count": 6 }
+    },
+    {
+      "name": "checker.verdict.retry",
+      "agent": "checker-agent",
+      "stage": "check",
+      "started_at": "2026-08-31T09:00:37Z",
+      "ended_at": "2026-08-31T09:00:40Z",
+      "status": "ok",
+      "attributes": { "verdict": "approved", "evidence_count": 6 }
+    },
+    {
+      "name": "guardrail.output",
+      "agent": "supervisor-agent",
+      "stage": "output",
+      "started_at": "2026-08-31T09:00:40Z",
+      "ended_at": "2026-08-31T09:00:41Z",
+      "status": "ok",
+      "attributes": {
+        "guardrail_check": "secret_scan,grounding,relevancy,contract",
+        "decision": "pass"
+      }
+    }
+  ]
+}

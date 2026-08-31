@@ -1,0 +1,18 @@
+﻿{
+    "testId":  "248afe7753d6b2bcebf3-d1a7b13c3aa06ab44564",
+    "title":  "[@regression] Iterating through all requestBodies",
+    "file":  "integration/service_360/INT-180_createIdCard.test.ts",
+    "line":  18,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  464,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e priority=Overnight\nrequestBody: {\"priority\":\"Overnight\",\"updatedBy\":\"CHANDRAR123456787654q^\u0026*(\",\"welcomePackageIncluded\":true}\n================USL API response==============\n{\n  \"isSuccess\": true,\n  \"statusCode\": 201,\n  \"message\": \"Create Id Card processed successfully.\",\n  \"data\": {\n    \"orderDate\": \"2026-07-22T00:00:00\",\n    \"lastPrintDate\": \"2007-11-02T17:45:42\",\n    \"numCards\": 1,\n    \"idCardPriority\": \"Overnight\"\n  },\n  \"errors\": null\n}\nMatched: requestBody: Overnight, responseBody: Overnight\n"
+                        }
+                    ]
+}

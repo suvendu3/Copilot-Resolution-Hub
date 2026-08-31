@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "1c95ea4aa3bc11a820bf-6464f4ea4621d71b5e04",
+    "title":  "[@regression] Iterating through all planMemberIds",
+    "file":  "integration/service_360/INT-258_billingDivisionDetails.test.ts",
+    "line":  15,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  6548,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [planMember=1774113] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"code\": \"6787\",\n    \"name\": \"SALARY ACTIVE - EXISTING BENEFIT PLAN CONTINUANCE\",\n    \"status\": \"A\",\n    \"statusDate\": \"2024-10-01T00:00:00\",\n    \"reason\": \"NA\",\n    \"effective\": \"2024-11-01T00:00:00\",\n    \"expiry\": null,\n    \"deleted\": null,\n    \"historicalData\": [],\n    \"futureData\": [],\n    \"deletedData\": []\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [planMember=1774113] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plan-members/1774113/billing-division"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [planMember=1774113] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"billingDivisionNo\": 6787,\n  \"description\": \"SALARY ACTIVE - EXISTING BENEFIT PLAN CONTINUANCE\",\n  \"statusTypeCode\": \"A\",\n  \"statusEffectiveDate\": \"2024-10-01T00:00:00\",\n  \"billingDivisionReasonCode\": \"NA\",\n  \"effectiveDate\": \"2024-11-01T00:00:00\",\n  \"expiryDate\": null,\n  \"deletedDate\": null,\n  \"historicalData\": [],\n  \"futureData\": [],\n  \"deletedData\": []\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [planMember=1774113] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/1774113/billing-division"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e planMemberId=1774113\nAll queryParams are false. Skipping comparison for historicalData, futureData, and deletedData.\nresult true\n\n=\u003e planMemberId=1774113\nresult true\n\n=\u003e planMemberId=1774113\nresult true\n\n=\u003e planMemberId=1774113\nresult true\n\n=\u003e planMemberId=1774113\nresult true\n\n=\u003e planMemberId=1774113\nresult true\n\n=\u003e planMemberId=5269\nresult true\n\n=\u003e planMemberId=5269\nresult true\n\n=\u003e planMemberId=5269\nresult true\n\n=\u003e planMemberId=5269\nresult true\n\n=\u003e planMemberId=5269\nresult true\n\n=\u003e planMemberId=38112\nresult true\n\n=\u003e planMemberId=38112\nresult true\n\n=\u003e planMemberId=38112\nresult true\n\n=\u003e planMemberId=38112\nresult true\n\n=\u003e planMemberId=38112\nresult true\n\n=\u003e planMemberId=99455\nresult true\n\n=\u003e planMemberId=99455\nresult true\n\n=\u003e planMemberId=99455\nresult true\n\n=\u003e planMemberId=99455\nresult true\n\n=\u003e planMemberId=99455\nresult true\n\n=\u003e planMemberId=1241\nresult true\n\n=\u003e planMemberId=1241\nresult true\n\n=\u003e planMemberId=1241\nresult true\n\n=\u003e planMemberId=1241\nresult true\n\n=\u003e planMemberId=1241\nresult true\n\n=\u003e planMemberId=2318219\nresult true\n\n=\u003e planMemberId=2318219\nresult true\n\n=\u003e planMemberId=2318219\nresult true\n\n=\u003e planMemberId=2318219\nresult true\n\n=\u003e planMemberId=2318219\nresult true\n\n=\u003e planMemberId=1752016\nresult true\n\n=\u003e planMemberId=1752016\nresult true\n\n=\u003e planMemberId=1752016\nresult true\n\n=\u003e planMemberId=1752016\nresult true\n\n=\u003e planMemberId=1752016\nresult true\n"
+                        }
+                    ]
+}

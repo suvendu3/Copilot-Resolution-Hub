@@ -1,0 +1,18 @@
+﻿{
+    "testId":  "cf7660711d8e83a67bd2-fb4cb360811c1c30d434",
+    "title":  "[@regression] INT-212 Travel Eligibility batch run",
+    "file":  "integration/ccaas/INT-212_Travel_Eligibility.test.ts",
+    "line":  44,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  393,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-212] Loaded 0 rows from Excel. Using asOfDate: 2023-12-02\n"
+                        }
+                    ]
+}

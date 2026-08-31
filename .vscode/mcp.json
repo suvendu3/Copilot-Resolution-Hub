@@ -1,0 +1,89 @@
+{
+  // =============================================================================
+  // MCP Server Configuration — Copilot Resolution Hub
+  // =============================================================================
+  // This is the SINGLE source of MCP configuration. No .env files, no Docker,
+  // no self-hosted server code. Copilot connects directly to each MCP endpoint.
+  //
+  // Secrets are NOT stored here. The "inputs" section below prompts you once
+  // per session and VS Code stores the value securely (never written to disk
+  // in this file). Reference them with ${input:<id>}.
+  // =============================================================================
+
+  "inputs": [
+    {
+      "id": "nice-pat",
+      "type": "promptString",
+      "description": "NICE CXone read-only PAT (see docs/mcp-inspection-inventory.md)",
+      "password": true
+    },
+    {
+      "id": "omilia-pat",
+      "type": "promptString",
+      "description": "Omilia group-scoped PAT — RESTRICTED, SIT only",
+      "password": true
+    }
+  ],
+
+  "servers": {
+
+    // ── CRM: D365 / Dataverse ────────────────────────────────────────────────
+    // Handled by Power Platform CLI (pac). No separate D365 server needed.
+    "pac-mcp": {
+      "type": "stdio",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-File",
+        ".vscode/start-pac-mcp.ps1"
+      ]
+    },
+    "pac-mcp-pac-cli": {
+      "type": "stdio",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-File",
+        ".vscode/start-pac-mcp-paccli.ps1"
+      ]
+    },
+    "pac-mcp-dnx": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": [
+        "Microsoft.PowerApps.CLI.Tool",
+        "--yes",
+        "copilot",
+        "mcp",
+        "--run"
+      ]
+    },
+
+    // ── DevOps: Azure DevOps (work items, repos, pipelines) ───────────────────
+    "ado-remote-mcp": {
+      "type": "http",
+      "url": "https://mcp.dev.azure.com/greenshieldcanada"
+    },
+
+    // ── CCaaS: NICE CXone ─────────────────────────────────────────────────────
+    // Replace <nice-tenant> with your CXone MCP endpoint host.
+    "nice-mcp": {
+      "type": "http",
+      "url": "https://<nice-tenant>.nice-incontact.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:nice-pat}"
+      }
+    },
+
+    // ── CCaaS: Omilia (Amelia) ── RESTRICTED ──────────────────────────────────
+    // BLOCKED per docs/mcp-inspection-inventory.md — PAT scope isolation bug.
+    // Kept for reference; do not enable until the vendor confirms a fix.
+    "omilia-mcp": {
+      "type": "http",
+      "url": "https://<omilia-tenant>.omilia.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:omilia-pat}"
+      }
+    }
+  }
+}

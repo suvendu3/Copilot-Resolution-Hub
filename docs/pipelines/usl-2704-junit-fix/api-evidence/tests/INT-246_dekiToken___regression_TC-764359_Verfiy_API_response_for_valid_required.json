@@ -1,0 +1,18 @@
+﻿{
+    "testId":  "69ed324753481b838a1c-b91cd22449f60d70e5fb",
+    "title":  "[@regression] TC-764359: Verfiy API response for valid required inputs",
+    "file":  "integration/service_360/INT-246_dekiToken.test.ts",
+    "line":  14,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  51,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "DeKi-Token: tkn_secret_1784814424_username_159836e8b474177843a666a1a24d0bb8bf61032faf3f04b2542a3c47498ae17f\n"
+                        }
+                    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "d362efe15e7b1e8937ba-9789f767cd57f23dc356",
+    "title":  "[@regression] INT-280 Participants Eligibility â€” batch GET USL vs SOR",
+    "file":  "integration/service_360/INT-280_ParticipantsEligibility.test.ts",
+    "line":  64,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  435,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "SOR_health Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"data\": [],\n  \"pagination\": {\n    \"next\": null,\n    \"previous\": null\n  }\n}"
+                        },
+                        {
+                            "name":  "SOR_health URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-cat.greenshieldplus.ca/voltron/v1/eligibility/admin/participant/search?limit=1\u0026clientKey=5c0871b7-9703-439d-b752-2b36d58030cb\u0026query=health"
+                        },
+                        {
+                            "name":  "USL_health Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"key\": \"90353c95-674b-445f-9ae9-a86e32538caa\",\n      \"client\": \"5c0871b7-9703-439d-b752-2b36d58030cb\",\n      \"externalId\": \"kenny.health@h904wspe.mailosaur.net\",\n      \"dheId\": null,\n      \"profileId\": null,\n      \"eligibilityStart\": \"2026-02-18T21:36:34.065Z\",\n      \"eligibilityEnd\": null,\n      \"additionalIdentifier1\": \"Test\",\n      \"additionalIdentifier2\": \"lil-0716-15\",\n      \"additionalIdentifier3\": \"Identifier 3\",\n      \"additionalIdentifier4\": \"Identifier 4\",\n      \"additionalIdentifier5\": \"Identifier 5\",\n      \"additionalIdentifier6\": \"Identifier 6\",\n      \"additionalIdentifier7\": \"Identifier 7\",\n      \"additionalIdentifier8\": \"Identifier 8\",\n      \"additionalIdentifier9\": \"Identifier 9\",\n      \"additionalIdentifier10\": \"Identifier 10\"\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL_health URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plansponsors/participantseligibility?limit=1\u0026clientKey=5c0871b7-9703-439d-b752-2b36d58030cb\u0026query=health"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-280] Loaded 1 row(s) from sheet \"INT-280_ParticipantsEligibility\"\n[USL] status=200 url=https://usl-sit.onlineweb.ca/service360/plans/api/v1/plansponsors/participantseligibility?limit=1\u0026clientKey=5c0871b7-9703-439d-b752-2b36d58030cb\u0026query=health\n[SOR] status=200 url=https://api-cat.greenshieldplus.ca/voltron/v1/eligibility/admin/participant/search?limit=1\u0026clientKey=5c0871b7-9703-439d-b752-2b36d58030cb\u0026query=health\n[INT-280] USL records: 1 | SOR records: 0\n[INT-280] One side returned 0 records â€” skipping field comparison.\n"
+                        }
+                    ]
+}

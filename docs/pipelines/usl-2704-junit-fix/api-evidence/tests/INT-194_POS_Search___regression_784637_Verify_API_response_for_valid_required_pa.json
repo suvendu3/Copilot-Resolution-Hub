@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "80531d79a9b13185052a-d2702d0d97a8d61a1ca8",
+    "title":  "[@regression] [784637]Verify API response for valid required parameters",
+    "file":  "integration/service_360/INT-194_POS_Search.test.ts",
+    "line":  30,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  326,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [memberPlanId=10718484,dependentNo=1] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"catBenegitCategoryTypeCd\": \"C\",\n      \"catBenefitCategoryId\": 131613,\n      \"catBenefitCategoryDescription\": {\n        \"en\": \"Non-Emergency Consultation\",\n        \"fr\": \"Consultation\"\n      },\n      \"bcBenefitCategoryTypeCd\": \"B\",\n      \"bcBenefitCategoryId\": 131612,\n      \"procedureCode\": \"49990\"\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [memberPlanId=10718484,dependentNo=1] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plan-members/10718484/dependent/1/getsponsorbenefitcategorysearch?offeringId=4466\u0026benefitCategoryId=131612\u0026benefitCategoryTypeCode=B\u0026asOfDate=2024-12-20"
+                        },
+                        {
+                            "name":  "SOR [memberPlanId=10718484,dependentNo=1] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"parentBenefitCategoryCode\": \"C\",\n    \"parentBenefitCategoryId\": 131613,\n    \"childBenefitCategoryCode\": \"B\",\n    \"childBenefitCategoryId\": 131612,\n    \"benefitDescription\": {\n      \"en\": \"Non-Emergency Consultation\",\n      \"fr\": \"Consultation\"\n    },\n    \"procedureCode\": \"49990\"\n  }\n]"
+                        },
+                        {
+                            "name":  "SOR [memberPlanId=10718484,dependentNo=1] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/benefits-api/v1/plan-members/10718484/dependents/1/plan-sponsor-offerings?offeringId=4466\u0026benefitCategoryId=131612\u0026benefitCategoryTypeCode=B\u0026asOfDate=2024-12-20"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Row Number  : 0\n"
+                        }
+                    ]
+}

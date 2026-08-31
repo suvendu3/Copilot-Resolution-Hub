@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "560ff3a98345dd0b1e4b-72ec247ddd829e1d15b9",
+    "title":  "[@regression] Iterating through all planMemberIds",
+    "file":  "integration/service_360/INT-108_predefinedNotes.test.ts",
+    "line":  16,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  382,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [procedureLineId=1727902324] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"noteCode\": \"VI_LE\",\n      \"noteText\": null\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [procedureLineId=1727902324] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/claims/predefined-notes?planMemberId=12825932\u0026claimFormId=1391119532\u0026claimDetailId=1730409684\u0026procedureLineId=1727902324\u0026claimFormRevisionNumber=1403472454\u0026claimRevisionNumber=1775108536"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [procedureLineId=1727902324] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"noteTypeCode\": \"VI_LE\",\n    \"noteText\": null\n  }\n]"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [procedureLineId=1727902324] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/plan-members/12825932/claims/1391119532/details/1730409684/predefined-notes?claimId=1727902324\u0026planMemberId=12825932\u0026claimFormId=1391119532\u0026claimDetailId=1730409684\u0026procedureLineId=1727902324\u0026claimFormRevisionNumber=1403472454\u0026claimRevisionNumber=1775108536"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e procedureLineId=1727902324\nresult true\n"
+                        }
+                    ]
+}

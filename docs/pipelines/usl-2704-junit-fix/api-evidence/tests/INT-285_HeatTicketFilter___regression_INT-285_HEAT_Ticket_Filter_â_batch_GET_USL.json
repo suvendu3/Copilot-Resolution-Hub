@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "560f327fcb8e694d9349-adf01fb6601c534e0bba",
+    "title":  "[@regression] INT-285 HEAT Ticket Filter â€” batch GET USL vs SOR",
+    "file":  "integration/service_360/INT-285_HeatTicketFilter.test.ts",
+    "line":  73,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  1932,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "SOR_677537 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"@odata.context\": \"https://omnia-ism-uat.ivanticloud.com/api/odata/$metadata#frs_myitems\",\n  \"@odata.count\": 1,\n  \"value\": [\n    {\n      \"RecId\": \"9CCA17EC764648AC94ECFF65138FF53E\",\n      \"LastModDateTime\": \"2026-05-04T15:34:44Z\",\n      \"LastModBy\": \"InternalServices\",\n      \"CreatedDateTime\": \"2026-04-29T15:34:58Z\",\n      \"CreatedBy\": \"BRESCHUJ\",\n      \"OwnerType\": \"Employee\",\n      \"Owner_Valid\": \"5181A04C9F3C4A78891E7D4A565E6352\",\n      \"Owner\": \"BRILLF\",\n      \"OwnerTeam_Valid\": \"5F5FF20118094D5CAF10A4D51FDD184C\",\n      \"OwnerTeam\": \"Call Centre Services\",\n      \"Status_Valid\": \"5F955E6F807A46E091DA756D3C1BF5AD\",\n      \"Status\": \"Logged\",\n      \"DisplayText\": \"test\",\n      \"DueDateTime\": \"2026-05-04T15:34:41Z\",\n      \"Priority\": \"4\",\n      \"ParentCreatedDateTime\": \"2026-04-29T15:34:41Z\",\n      \"ParentCreatedBy\": \"BRESCHUJ\",\n      \"ParentLastModDateTime\": \"2026-05-04T15:34:44Z\",\n      \"ParentLastModBy\": \"InternalServices\",\n      \"ParentLink_Category\": \"Incident\",\n      \"ParentLink_RecID\": \"A7D06D9F3D3A47518CA60ABF3175737C\",\n      \"ParentLink\": null,\n      \"IsFinalState\": false,\n      \"ParentObjectType_Valid\": \"149F5155318949C29ED84DB5C4CDDBD2\",\n      \"ParentObjectType\": \"Incident\",\n      \"ParentID\": \"677537\",\n      \"SecondParentLink_Category\": \"Incident\",\n      \"SecondParentLink_RecID\": \"A7D06D9F3D3A47518CA60ABF3175737C\",\n      \"SecondParentLink\": null,\n      \"CustomerRecId\": \"7ECB5F0CA6CD4FDBA3F987352BE3825B\",\n      \"ProgressBarPosition\": \"1\",\n      \"ReadOnly\": false,\n      \"IsDraft\": false\n    }\n  ]\n}"
+                        },
+                        {
+                            "name":  "SOR_677537 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://omnia-ism-uat.ivanticloud.com/api/odata/businessobject/FRS_MyItems?$filter=ParentID%20eq%20%27677537%27%20and%20ParentLink_Category%20eq%20%27Incident%27"
+                        },
+                        {
+                            "name":  "USL_677537 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"results\": [\n      {\n        \"recId\": \"9CCA17EC764648AC94ECFF65138FF53E\",\n        \"lastModDateTime\": \"2026-05-04T15:34:44Z\",\n        \"lastModBy\": \"InternalServices\",\n        \"createdDateTime\": \"2026-04-29T15:34:58Z\",\n        \"createdBy\": \"BRESCHUJ\",\n        \"ownerType\": \"Employee\",\n        \"owner_Valid\": \"5181A04C9F3C4A78891E7D4A565E6352\",\n        \"owner\": \"BRILLF\",\n        \"ownerTeam_Valid\": \"5F5FF20118094D5CAF10A4D51FDD184C\",\n        \"ownerTeam\": \"Call Centre Services\",\n        \"status_Valid\": \"5F955E6F807A46E091DA756D3C1BF5AD\",\n        \"status\": \"Logged\",\n        \"displayText\": \"test\",\n        \"dueDateTime\": \"2026-05-04T15:34:41Z\",\n        \"priority\": \"4\",\n        \"parentCreatedDateTime\": \"2026-04-29T15:34:41Z\",\n        \"parentCreatedBy\": \"BRESCHUJ\",\n        \"parentLastModDateTime\": \"2026-05-04T15:34:44Z\",\n        \"parentLastModBy\": \"InternalServices\",\n        \"parentLink_Category\": \"Incident\",\n        \"parentLink_RecID\": \"A7D06D9F3D3A47518CA60ABF3175737C\",\n        \"parentLink\": null,\n        \"isFinalState\": false,\n        \"parentObjectType_Valid\": \"149F5155318949C29ED84DB5C4CDDBD2\",\n        \"parentObjectType\": \"Incident\",\n        \"parentID\": \"677537\",\n        \"secondParentLink_Category\": \"Incident\",\n        \"secondParentLink_RecID\": \"A7D06D9F3D3A47518CA60ABF3175737C\",\n        \"secondParentLink\": null,\n        \"customerRecId\": \"7ECB5F0CA6CD4FDBA3F987352BE3825B\",\n        \"progressBarPosition\": \"1\",\n        \"readOnly\": false,\n        \"isDraft\": false\n      }\n    ]\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL_677537 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/admin/api/v1/heatticket/filter?ParentID=677537\u0026ParentLink_Category=Incident"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[INT-285] Loaded 1 row(s) from sheet \"INT-285_HeatTicketFilter\"\n[USL] status=200 url=https://usl-sit.onlineweb.ca/service360/admin/api/v1/heatticket/filter?ParentID=677537\u0026ParentLink_Category=Incident\n[SOR] status=200 url=https://omnia-ism-uat.ivanticloud.com/api/odata/businessobject/FRS_MyItems?$filter=ParentID%20eq%20%27677537%27%20and%20ParentLink_Category%20eq%20%27Incident%27\n[INT-285] USL records: 1 | SOR records: 1\n"
+                        }
+                    ]
+}

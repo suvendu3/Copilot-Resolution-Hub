@@ -1,0 +1,143 @@
+﻿{
+    "testId":  "afb070b4dbf7ec2cff20-7f26a8b63aeeb880b46d",
+    "title":  "[@regression] INT-211 Dental Procedure batch run",
+    "file":  "integration/ccaas/INT-211_Dental_Procedure.test.ts",
+    "line":  61,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  5131,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[row 0] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=11101\u0026provinceCode=ON\u0026asOfDate=2025-03-29"
+                        },
+                        {
+                            "name":  "[row 0] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"11101\",\n    \"description\": {\n      \"en\": \"POLISHING, 15 MINUTES\",\n      \"fr\": \"Prophylaxie (nettoyage), 1 unitÃ©\"\n    },\n    \"requireToothCode\": \"No\",\n    \"requireToothSurfaces\": \"No\",\n    \"toothSurfaceCount\": null\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 1] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23322\u0026provinceCode=AB\u0026asOfDate=2022-05-27"
+                        },
+                        {
+                            "name":  "[row 1] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23322\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 2] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23412\u0026provinceCode=BC\u0026asOfDate=2024-08-11"
+                        },
+                        {
+                            "name":  "[row 2] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23412\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 3] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=11101\u0026provinceCode=MB\u0026asOfDate=2024-07-21"
+                        },
+                        {
+                            "name":  "[row 3] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"11101\",\n    \"description\": {\n      \"en\": \"POLISHING, 15 MINUTES\",\n      \"fr\": \"Prophylaxie (nettoyage), 1 unitÃ©\"\n    },\n    \"requireToothCode\": \"No\",\n    \"requireToothSurfaces\": \"No\",\n    \"toothSurfaceCount\": null\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 4] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23322\u0026provinceCode=NB\u0026asOfDate=2022-08-07"
+                        },
+                        {
+                            "name":  "[row 4] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23322\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 5] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23412\u0026provinceCode=NL\u0026asOfDate=2020-03-08"
+                        },
+                        {
+                            "name":  "[row 5] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23412\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 6] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=11101\u0026provinceCode=NS\u0026asOfDate=2024-02-17"
+                        },
+                        {
+                            "name":  "[row 6] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"11101\",\n    \"description\": {\n      \"en\": \"POLISHING, 15 MINUTES\",\n      \"fr\": \"Prophylaxie (nettoyage), 1 unitÃ©\"\n    },\n    \"requireToothCode\": \"No\",\n    \"requireToothSurfaces\": \"No\",\n    \"toothSurfaceCount\": null\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 7] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23322\u0026provinceCode=PE\u0026asOfDate=2024-05-17"
+                        },
+                        {
+                            "name":  "[row 7] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23322\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 8] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23412\u0026provinceCode=QC\u0026asOfDate=2023-08-15"
+                        },
+                        {
+                            "name":  "[row 8] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23412\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 9] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23412\u0026provinceCode=SK\u0026asOfDate=2026-06-29"
+                        },
+                        {
+                            "name":  "[row 9] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23412\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 10] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=11101\u0026provinceCode=NT\u0026asOfDate=2024-12-28"
+                        },
+                        {
+                            "name":  "[row 10] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"11101\",\n    \"description\": {\n      \"en\": \"POLISHING, 15 MINUTES\",\n      \"fr\": \"Prophylaxie (nettoyage), 1 unitÃ©\"\n    },\n    \"requireToothCode\": \"No\",\n    \"requireToothSurfaces\": \"No\",\n    \"toothSurfaceCount\": null\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 11] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23322\u0026provinceCode=NU\u0026asOfDate=2022-12-29"
+                        },
+                        {
+                            "name":  "[row 11] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23322\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 12] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "/service360/plans/api/v1/dental/procedure?procedureCode=23412\u0026provinceCode=YT\u0026asOfDate=2026-01-18"
+                        },
+                        {
+                            "name":  "[row 12] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"procedureCode\": \"23412\",\n    \"description\": {\n      \"en\": \"FILLING, TWO SURFACE\",\n      \"fr\": \"Restauration, deux surfaces\"\n    },\n    \"requireToothCode\": \"Yes\",\n    \"requireToothSurfaces\": \"Yes\",\n    \"toothSurfaceCount\": 2\n  },\n  \"errors\": null\n}"
+                        }
+                    ]
+}

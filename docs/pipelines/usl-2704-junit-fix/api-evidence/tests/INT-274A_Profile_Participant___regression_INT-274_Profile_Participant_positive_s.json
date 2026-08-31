@@ -1,0 +1,33 @@
+﻿{
+    "testId":  "370811907cd2fdfc3f79-78713308a32b0d00667c",
+    "title":  "[@regression] INT-274 Profile Participant positive scenario batch run",
+    "file":  "integration/service_360/INT-274A_Profile_Participant.test.ts",
+    "line":  44,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  352,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "SOR_53857 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"status\": 200,\n  \"url\": \"https://ibenefitsproxy-qa.ibenefits.ca/voapi/api/member/50024:106524:13102:149095/asset/byid/53857/content?ignoreLanguage=true\"\n}"
+                        },
+                        {
+                            "name":  "SOR_53857 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://ibenefitsproxy-qa.ibenefits.ca/voapi/api/member/50024:106524:13102:149095/asset/byid/53857/content?ignoreLanguage=true"
+                        },
+                        {
+                            "name":  "USL_53857 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"status\": 200,\n  \"url\": \"https://usl-sit.onlineweb.ca/service360/documents/api/v1/assets/byid/53857/member/50024:106524:13102:149095/content?ignoreLanguage=true\"\n}"
+                        },
+                        {
+                            "name":  "USL_53857 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/documents/api/v1/assets/byid/53857/member/50024:106524:13102:149095/content?ignoreLanguage=true"
+                        }
+                    ]
+}

@@ -1,0 +1,28 @@
+﻿{
+    "testId":  "16d2c8586ac801c9b9c1-d8549b9797e91b71e8a8",
+    "title":  "[@regression] [791489] Validate valid request for all payloads",
+    "file":  "integration/service_360/INT-135_reissueCheque.test.ts",
+    "line":  40,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  56,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [paymentId=445436767] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/claims-api/v1/payments/445436767/revisions/146536107/reissue-cheque"
+                        },
+                        {
+                            "name":  "SOR [paymentId=445436767] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/service360/payments/api/v1/payments/445436767/revisions/146536107/reissue-cheque"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "row Number | Payload number  0\n"
+                        }
+                    ]
+}

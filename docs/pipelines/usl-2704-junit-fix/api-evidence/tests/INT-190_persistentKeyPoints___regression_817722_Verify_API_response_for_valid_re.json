@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "6f807ee0cfc827bccdea-fdfc4d45d71112517537",
+    "title":  "[@regression] [817722]Verify API response for valid required parameters",
+    "file":  "integration/service_360/INT-190_persistentKeyPoints.test.ts",
+    "line":  30,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  1104,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [planMemberId=1752016] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"keyPointType\": \"108073\",\n      \"keyPointDescription\": \"GreenShield Mental Health EAP Services are included for Active employees at no cost to the plan member. See KM for additional information. \"\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [planMemberId=1752016] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/plan-members/1752016/keypoints"
+                        },
+                        {
+                            "name":  "SOR [planMemberId=1752016] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"planSponsorId\": \"1606\",\n    \"billingDivisionNo\": 0,\n    \"keyPointId\": 108073,\n    \"keyPointDescription\": \"GreenShield Mental Health EAP Services are included for Active employees at no cost to the plan member. See KM for additional information. \"\n  }\n]"
+                        },
+                        {
+                            "name":  "SOR [planMemberId=1752016] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/1752016/keypoints"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Row Number  : 0\nSOR and USL matched.\n"
+                        }
+                    ]
+}

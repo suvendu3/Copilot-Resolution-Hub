@@ -1,0 +1,329 @@
+parameters:
+- name: runOption
+  displayName: 'Test suite to run'
+  type: string
+  default: 'sit'
+  values:
+    - sit
+    - sit-regression
+    - trn
+    - trn-regression
+    - uat
+    - uat-regression
+    - dev
+
+- name: trnOnlyInts
+  displayName: 'TRN-only INTS (comma-separated, e.g. INT-278H,INT-279H)'
+  type: string
+  default: 'INT-284,INT-245EAP'
+
+# - name: emailRecipients
+#   displayName: 'Email recipients (comma-separated)'
+#   type: string
+#   default: 'eppalapalli.sainath@greenshield.ca,suvendu.pattnaik@greenshield.ca,satish.samala@greenshield.ca'
+
+trigger: none
+
+# Azure DevOps cron uses UTC (IST = UTC+5:30).
+# Temporary validation schedules:
+# SIT daily  8:30 AM IST = 03:00 UTC
+# TRN daily  8:35 AM IST = 03:05 UTC
+# UAT daily  8:40 AM IST = 03:10 UTC
+schedules:
+- cron: "0 3 * * *"
+  displayName: 'Daily SIT - 08:30 AM IST'
+  branches:
+    include:
+    - qa
+  always: true
+
+- cron: "5 3 * * *"
+  displayName: 'Daily TRN - 08:35 AM IST'
+  branches:
+    include:
+    - qa
+  always: true
+
+- cron: "10 3 * * *"
+  displayName: 'Daily UAT - 08:40 AM IST'
+  branches:
+    include:
+    - qa
+  always: true
+
+stages:
+- stage: Test
+  displayName: 'API Test Stage'
+  variables:
+    - ${{ if or(eq(variables['Build.CronSchedule.DisplayName'], 'Daily SIT - 08:30 AM IST'), eq(variables['Build.CronSchedule.DisplayName'], 'Validation SIT Regression - 08:30 AM IST'), eq(parameters.runOption, 'dev'), eq(parameters.runOption, 'sit'), eq(parameters.runOption, 'sit-regression')) }}:
+      - group: 'Playwright_QA'
+    - ${{ if or(eq(variables['Build.CronSchedule.DisplayName'], 'Daily TRN - 08:35 AM IST'), eq(variables['Build.CronSchedule.DisplayName'], 'Validation TRN Regression - 01:17 PM IST'), eq(parameters.runOption, 'trn'), eq(parameters.runOption, 'trn-regression')) }}:
+      - group: 'Playwright_TRN'
+    - ${{ if or(eq(variables['Build.CronSchedule.DisplayName'], 'Daily UAT - 08:40 AM IST'), eq(variables['Build.CronSchedule.DisplayName'], 'Validation UAT Regression - 01:22 PM IST'), eq(parameters.runOption, 'uat'), eq(parameters.runOption, 'uat-regression')) }}:
+      - group: 'Playwright_UAT'
+  jobs:
+  - job: PlaywrightTests
+    displayName: 'Run Playwright API Tests'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - checkout: self
+      clean: true
+
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '20.x'
+      displayName: 'Install Node.js'
+
+    - script: |
+        npm install
+      displayName: 'Install dependencies'
+
+    - script: |
+        set -euo pipefail
+
+        RUN_OPTION='${{ parameters.runOption }}'
+        if [ "$(Build.Reason)" = "Schedule" ]; then
+          case "$(Build.CronSchedule.DisplayName)" in
+            "Daily SIT - 08:30 AM IST")
+              RUN_OPTION='sit'
+              ;;
+            "Validation SIT Regression - 08:30 AM IST")
+              RUN_OPTION='sit-regression'
+              ;;
+            "Daily TRN - 08:35 AM IST")
+              RUN_OPTION='trn'
+              ;;
+            "Validation TRN Regression - 01:17 PM IST")
+              RUN_OPTION='trn-regression'
+              ;;
+            "Daily UAT - 08:40 AM IST")
+              RUN_OPTION='uat'
+              ;;
+            "Validation UAT Regression - 01:22 PM IST")
+              RUN_OPTION='uat-regression'
+              ;;
+          esac
+        fi
+
+        case "${RUN_OPTION}" in
+          dev) RUN_LABEL='DEV' ;;
+          sit) RUN_LABEL='SIT' ;;
+          sit-regression) RUN_LABEL='SIT Regression' ;;
+          trn) RUN_LABEL='TRN' ;;
+          trn-regression) RUN_LABEL='TRN Regression' ;;
+          uat) RUN_LABEL='UAT' ;;
+          uat-regression) RUN_LABEL='UAT Regression' ;;
+          qa) RUN_OPTION='sit'; RUN_LABEL='SIT' ;;
+          regression) RUN_OPTION='sit-regression'; RUN_LABEL='SIT Regression' ;;
+          *)
+            echo "Unsupported run option: ${RUN_OPTION}"
+            exit 1
+            ;;
+        esac
+
+        RUN_TOKEN="$(echo "${RUN_OPTION}" | tr '[:lower:]' '[:upper:]' | tr '-' '_')"
+
+        echo "Resolved run option: ${RUN_OPTION}"
+        echo "Resolved environment label: ${RUN_LABEL}"
+        echo "##vso[task.setvariable variable=ResolvedRunOption]${RUN_OPTION}"
+        echo "##vso[task.setvariable variable=ResolvedRunLabel]${RUN_LABEL}"
+
+        # Highlight environment on pipeline summary screen.
+        echo "##vso[build.addbuildtag]ENV_${RUN_TOKEN}"
+        echo "##vso[build.updatebuildnumber]$(Build.BuildNumber)-${RUN_TOKEN}"
+      displayName: 'Resolve and highlight run environment'
+
+    - task: qetza.replacetokens.replacetokens-task.replacetokens@5
+      displayName: 'Inject SIT environment values'
+      condition: or(eq('${{ parameters.runOption }}', 'dev'), eq('${{ parameters.runOption }}', 'sit'), eq('${{ parameters.runOption }}', 'sit-regression'), eq(variables['Build.CronSchedule.DisplayName'], 'Daily SIT - 08:30 AM IST'), eq(variables['Build.CronSchedule.DisplayName'], 'Validation SIT Regression - 08:30 AM IST'))
+      inputs:
+        # Injects real values from the 'Playwright_QA' variable group into the SIT template.
+        # Every #{TOKEN}# in this file must have a matching variable in the group
+        # (actionOnMissing: fail will stop the run if any are missing).
+        targetFiles: 'lib/config/.env.qa'
+        actionOnMissing: 'fail'
+        keepToken: true
+
+    - task: qetza.replacetokens.replacetokens-task.replacetokens@5
+      displayName: 'Inject TRN environment values (when needed)'
+      condition: or(eq('${{ parameters.runOption }}', 'trn'), eq('${{ parameters.runOption }}', 'trn-regression'), ne('${{ parameters.trnOnlyInts }}', ''), eq(variables['Build.CronSchedule.DisplayName'], 'Daily TRN - 08:35 AM IST'), eq(variables['Build.CronSchedule.DisplayName'], 'Validation TRN Regression - 01:17 PM IST'))
+      inputs:
+        targetFiles: 'lib/config/.env.trn'
+        actionOnMissing: 'warn'
+        keepToken: true
+
+    - task: qetza.replacetokens.replacetokens-task.replacetokens@5
+      displayName: 'Inject UAT environment values (when needed)'
+      condition: or(eq('${{ parameters.runOption }}', 'uat'), eq('${{ parameters.runOption }}', 'uat-regression'), eq(variables['Build.CronSchedule.DisplayName'], 'Daily UAT - 08:40 AM IST'), eq(variables['Build.CronSchedule.DisplayName'], 'Validation UAT Regression - 01:22 PM IST'))
+      inputs:
+        targetFiles: 'lib/config/.env.uat'
+        actionOnMissing: 'warn'
+        keepToken: true
+
+    - script: |
+        set -euo pipefail
+
+        RUN_OPTION='$(ResolvedRunOption)'
+        if [ -z "${RUN_OPTION}" ]; then
+          RUN_OPTION='${{ parameters.runOption }}'
+        fi
+
+        echo "Resolved run option: ${RUN_OPTION}"
+        echo "##vso[task.setvariable variable=ResolvedRunOption]${RUN_OPTION}"
+
+        PRIMARY_CMD=''
+        TRN_CMD=''
+        QA_BASED='false'
+
+        case "${RUN_OPTION}" in
+          dev)
+            PRIMARY_CMD='npm run dev'
+            ;;
+          sit)
+            PRIMARY_CMD='npm run qa'
+            TRN_CMD='npm run trn'
+            QA_BASED='true'
+            ;;
+          sit-regression)
+            PRIMARY_CMD='npm run regression'
+            TRN_CMD='npm run trn:regression'
+            QA_BASED='true'
+            ;;
+          qa)
+            PRIMARY_CMD='npm run qa'
+            TRN_CMD='npm run trn'
+            QA_BASED='true'
+            ;;
+          regression)
+            PRIMARY_CMD='npm run regression'
+            TRN_CMD='npm run trn:regression'
+            QA_BASED='true'
+            ;;
+          trn)
+            PRIMARY_CMD='npm run trn'
+            ;;
+          trn-regression)
+            PRIMARY_CMD='npm run trn:regression'
+            ;;
+          uat)
+            PRIMARY_CMD='npm run uat'
+            ;;
+          uat-regression)
+            PRIMARY_CMD='npm run uat:regression'
+            ;;
+          *)
+            echo "Unsupported run option: ${RUN_OPTION}"
+            exit 1
+            ;;
+        esac
+
+        TRN_ONLY_INTS_RAW='${{ parameters.trnOnlyInts }}'
+        TRN_ONLY_REGEX=''
+        TRN_ONLY_FILES=''
+
+        if [ -n "$(echo "${TRN_ONLY_INTS_RAW}" | tr -d '[:space:],;')" ]; then
+          TRN_ONLY_REGEX="$(
+            echo "${TRN_ONLY_INTS_RAW}" \
+              | tr ',;' '\n' \
+              | sed 's/\r//g' \
+              | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' \
+              | sed '/^$/d' \
+              | awk '{v=toupper($0); sub(/^INT-/,"",v); gsub(/[^0-9A-Z]/,"",v); if (v!="") print "INT-" v}' \
+              | paste -sd'|' -
+          )"
+
+          TRN_ONLY_FILES="$(
+            echo "${TRN_ONLY_INTS_RAW}" \
+              | tr ',;' '\n' \
+              | sed 's/\r//g' \
+              | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' \
+              | sed '/^$/d' \
+              | awk '{v=toupper($0); sub(/^INT-/,"",v); gsub(/[^0-9A-Z]/,"",v); if (v!="") print "tests/**/INT-" v "*.test.ts"}'
+          )"
+        fi
+
+        if [ -n "${TRN_ONLY_REGEX}" ]; then
+          echo "TRN-only INTS regex: ${TRN_ONLY_REGEX}"
+          echo "##vso[task.setvariable variable=TrnOnlyIntsRegex]${TRN_ONLY_REGEX}"
+          echo "TRN-only test file globs:"
+          echo "${TRN_ONLY_FILES}"
+        else
+          echo "No TRN-only INTS provided."
+        fi
+
+        if [ "${QA_BASED}" = 'true' ] && [ -n "${TRN_ONLY_REGEX}" ]; then
+          PRIMARY_CMD="${PRIMARY_CMD} -- --grep-invert \"${TRN_ONLY_REGEX}\""
+        fi
+
+        echo "Running primary suite command: ${PRIMARY_CMD}"
+        eval "${PRIMARY_CMD}"
+
+        if [ "${QA_BASED}" = 'true' ] && [ -n "${TRN_ONLY_FILES}" ]; then
+          if [ ! -f 'lib/config/.env.trn' ]; then
+            echo "##vso[task.logissue type=warning]TRN-only INTS configured, but lib/config/.env.trn is missing. Skipping TRN-only execution for now."
+            exit 0
+          fi
+
+          if grep -Eq '#\{[^}]+\}#' lib/config/.env.trn; then
+            echo "##vso[task.logissue type=warning]TRN environment values are not fully injected yet. Skipping TRN-only execution for now."
+            exit 0
+          fi
+
+          TRN_EXEC_CMD="${TRN_CMD}"
+          while IFS= read -r f; do
+            [ -z "${f}" ] && continue
+            TRN_EXEC_CMD="${TRN_EXEC_CMD} \"${f}\""
+          done <<< "${TRN_ONLY_FILES}"
+
+          echo "Running TRN-only INTS command: ${TRN_EXEC_CMD}"
+          eval "${TRN_EXEC_CMD}"
+        fi
+      displayName: 'Run Playwright API tests ($(ResolvedRunLabel))'
+      continueOnError: true
+      # Signal CI so playwright.config.ts registers the JUnit reporter
+      # (Azure Pipelines sets TF_BUILD, but CI is the Playwright convention).
+      env:
+        CI: 'true'
+
+    # ── Publish JUnit results so pass/fail shows in the Tests tab ──────────────
+    - task: PublishTestResults@2
+      displayName: 'Publish JUnit Test Results'
+      condition: succeededOrFailed()
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: 'test-results/junit.xml'
+        mergeTestResults: true
+        failTaskOnFailedTests: false
+        testRunTitle: 'Playwright API Tests - $(ResolvedRunOption) (Build $(Build.BuildId))'
+
+    # ── Publish the Playwright HTML report as a downloadable artifact ──────────
+    # After the run: Pipeline run → Artifacts → download the zip → open index.html
+    - task: PublishPipelineArtifact@1
+      displayName: 'Publish Playwright HTML Report (artifact)'
+      condition: succeededOrFailed()
+      inputs:
+        targetPath: 'playwright-report'
+        artifact: 'playwright-report-$(ResolvedRunOption)-$(Build.BuildId)'
+        publishLocation: 'pipeline'
+
+    # ── Publish the raw Allure results (feeds the Allure history/report) ───────
+    - task: PublishPipelineArtifact@1
+      displayName: 'Publish Allure Results (artifact)'
+      condition: succeededOrFailed()
+      inputs:
+        targetPath: 'allure-results'
+        artifact: 'allure-results-$(ResolvedRunOption)-$(Build.BuildId)'
+        publishLocation: 'pipeline'
+
+    # ── OPTIONAL: view the HTML report inline as a tab on the pipeline run ─────
+    # Requires the free "Publish HTML Reports" Marketplace extension:
+    # https://marketplace.visualstudio.com/items?itemName=JakubRumpca.azure-pipelines-html-report
+    # Ask your Azure DevOps admin to install it, then uncomment the block below.
+    #
+    # - task: PublishHtmlReport@1
+    #   displayName: 'Publish Playwright HTML Report (inline tab)'
+    #   condition: succeededOrFailed()
+    #   inputs:
+    #     reportDir: '$(System.DefaultWorkingDirectory)/playwright-report'
+    #     tabName: 'Playwright Report'

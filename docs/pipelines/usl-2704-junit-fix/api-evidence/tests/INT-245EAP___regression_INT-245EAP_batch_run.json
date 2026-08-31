@@ -1,0 +1,48 @@
+﻿{
+    "testId":  "b60c160f771e25f7cc4d-20a5c18c8b5007433337",
+    "title":  "[@regression] INT-245EAP batch run",
+    "file":  "integration/ccaas/INT-245EAP.test.ts",
+    "line":  52,
+    "project":  "regression",
+    "outcome":  "unexpected",
+    "ok":  false,
+    "durationMs":  2608,
+    "status":  "failed",
+    "attachments":  [
+                        {
+                            "name":  "[row 0] Field Comparison",
+                            "contentType":  "text/plain",
+                            "body":  "Row 0: accountId=8f58249c-b9ed-40a1-bf95-cceb6078546f  dheId=e0aab4dd-ad93-4b11-8cc0-4d5de5b39526\nUSL Status=404  SOR1 Status=200  SOR2 Status=200\n\nâ”€â”€ INDIVIDUAL â”€â”€\n  âŒ isUnlimited              SOR1=false  USL=undefined\n  âŒ remainingHours           SOR1=0  USL=undefined\n  â„¹ï¸  totalCounselingHours     USL=undefined\n  â„¹ï¸  hoursUsed                USL=undefined\nâ”€â”€ COUPLES â”€â”€\n  âŒ isUnlimited              SOR1=false  USL=undefined\n  âŒ remainingHours           SOR1=2  USL=undefined\n  â„¹ï¸  totalCounselingHours     USL=undefined\n  â„¹ï¸  hoursUsed                USL=undefined"
+                        },
+                        {
+                            "name":  "[row 0] USL URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/admin/api/v1/account/8f58249c-b9ed-40a1-bf95-cceb6078546f/eap?dheId=e0aab4dd-ad93-4b11-8cc0-4d5de5b39526"
+                        },
+                        {
+                            "name":  "[row 0] SOR1 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api.inkblottherapy.com/api/crm/v1/plan_members/8f58249c-b9ed-40a1-bf95-cceb6078546f/utilization"
+                        },
+                        {
+                            "name":  "[row 0] SOR2 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-cat.greenshieldplus.ca/voltron/v2/eligibility/s2s/benefits?dheId=e0aab4dd-ad93-4b11-8cc0-4d5de5b39526"
+                        },
+                        {
+                            "name":  "[row 0] USL Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": false,\n  \"statusCode\": 404,\n  \"message\": \"dheId not found\",\n  \"data\": null,\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[row 0] SOR1 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"data\": {\n    \"utilization\": {\n      \"individual\": {\n        \"remaining_counselling_hours\": 0\n      },\n      \"couples\": {\n        \"remaining_counselling_hours\": 2\n      },\n      \"generic\": [\n        {\n          \"category_name\": \"Specialized Clinical Services\",\n          \"role_name\": \"Fitness coach\",\n          \"remaining_counselling_hours\": 0\n        },\n        {\n          \"category_name\": \"Specialized Clinical Services\",\n          \"role_name\": \"Physiotherapist\",\n          \"remaining_counselling_hours\": 1\n        },\n        {\n          \"category_name\": \"Life Transitions (Life)\",\n          \"role_name\": \"Life coach\",\n          \"remaining_counselling_hours\": 0\n        },\n        {\n          \"category_name\": \"Life Transitions (Life)\",\n          \"role_name\": \"Family physician\",\n          \"remaining_counselling_hours\": 0\n        },\n        {\n          \"category_name\": \"Health Coaching (Health)\",\n          \"role_name\": \"Nutritionist\",\n          \"remaining_counselling_hours\": 4\n        }\n      ],\n      \"prices\": {\n        \"individual_video_price\": 110,\n        \"individual_in_person_price\": 125,\n        \"couples_video_price\": 110,\n        \"couples_in_person_price\": 125\n      }\n    }\n  }\n}"
+                        },
+                        {
+                            "name":  "[row 0] SOR2 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"benefits\": [\n    {\n      \"code\": \"couples_counselling\",\n      \"source\": \"voltron\",\n      \"type\": \"benefit\",\n      \"eligible\": true,\n      \"packageKey\": \"6af44fcf-211a-4fc0-9469-4844da55624f\",\n      \"quantity\": 10,\n      \"isUnlimited\": false\n    },\n    {\n      \"code\": \"individual_counselling\",\n      \"source\": \"voltron\",\n      \"type\": \"benefit\",\n      \"eligible\": true,\n      \"packageKey\": \"6af44fcf-211a-4fc0-9469-4844da55624f\",\n      \"quantity\": 10,\n      \"isUnlimited\": false\n    }\n  ]\n}"
+                        }
+                    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "dfcb8fcc55531ea7447d-dd6112370ccd817116c4",
+    "title":  "[@regression] Iterating through all planMemberIds",
+    "file":  "integration/service_360/INT-118_planMemberPermissions.test.ts",
+    "line":  15,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  3480,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [planMemberId=1752016] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"lastName\": \"Stone\",\n      \"firstName\": \"Blake\",\n      \"relationship\": \"Son\",\n      \"authorizedPersonId\": 1024577,\n      \"source\": 3,\n      \"description\": {\n        \"en\": \"Call Advantage\",\n        \"fr\": \"Call Advantage\"\n      }\n    },\n    {\n      \"lastName\": \"jnc8gka6zq\",\n      \"firstName\": \"7cn8r0w\",\n      \"relationship\": \"otd8s55ci9p5\",\n      \"authorizedPersonId\": 1024819,\n      \"source\": 7,\n      \"description\": {\n        \"en\": \"Plan Member Web\",\n        \"fr\": \"Membre du rÃ©gime sur le Web\"\n      }\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [planMemberId=1752016] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/1752016/authorized-persons"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [planMemberId=1752016] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"authorizedPersonId\": 1024577,\n    \"firstName\": \"Blake\",\n    \"lastName\": \"Stone\",\n    \"relationship\": \"Son\",\n    \"appCode\": {\n      \"code\": \"CA\",\n      \"description\": {\n        \"en\": \"Call Advantage\",\n        \"fr\": \"Call Advantage\"\n      }\n    }\n  },\n  {\n    \"authorizedPersonId\": 1024819,\n    \"firstName\": \"7cn8r0w\",\n    \"lastName\": \"jnc8gka6zq\",\n    \"relationship\": \"otd8s55ci9p5\",\n    \"appCode\": {\n      \"code\": \"PMWEB\",\n      \"description\": {\n        \"en\": \"Plan Member Web\",\n        \"fr\": \"Membre du rÃ©gime sur le Web\"\n      }\n    }\n  }\n]"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [planMemberId=1752016] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/1752016/authorized-persons"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e planMemberId=1752016\nresult true\n\n=\u003e planMemberId=17337077\nresult true\n\n=\u003e planMemberId=12850552\nresult true\n\n=\u003e planMemberId=17337011\nresult true\n\n=\u003e planMemberId=17337022\nresult true\n\n=\u003e planMemberId=16430919\nresult true\n\n=\u003e planMemberId=16430892\nresult true\n\n=\u003e planMemberId=17337007\nresult true\n\n=\u003e planMemberId=17337022\nresult true\n\n=\u003e planMemberId=99455\nresult true\n\n=\u003e planMemberId=1826525\nresult true\n\n=\u003e planMemberId=2318219\nresult true\n\n=\u003e planMemberId=14002558\nresult true\n\n=\u003e planMemberId=16271339\nresult true\n\n=\u003e planMemberId=18234686\nresult true\n"
+                        }
+                    ]
+}

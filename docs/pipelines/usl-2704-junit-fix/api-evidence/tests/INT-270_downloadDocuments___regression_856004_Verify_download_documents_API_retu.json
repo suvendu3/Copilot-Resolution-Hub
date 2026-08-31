@@ -1,0 +1,28 @@
+﻿{
+    "testId":  "e5323629a233e702c37b-6ec31cb7ad19f07fe39d",
+    "title":  "[@regression][856004] Verify download documents API returns 200",
+    "file":  "integration/service_360/INT-270_downloadDocuments.test.ts",
+    "line":  19,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  771,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [planMemberId=1512156,documentId=939430] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/documents/api/v1/plan-members/1512156/dependents/00/documents/939430"
+                        },
+                        {
+                            "name":  "SOR [planMemberId=1512156,documentId=939430] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/plan-members-api/v1/plan-members/1512156/dependents/00/documents/939430"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n"
+                        }
+                    ]
+}

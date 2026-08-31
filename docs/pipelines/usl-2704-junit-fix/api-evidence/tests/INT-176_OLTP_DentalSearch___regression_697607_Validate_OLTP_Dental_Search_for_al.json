@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "67ba3ba9783353b141a9-6ca56971bb6237af3296",
+    "title":  "[@regression] [697607]Validate OLTP Dental Search for all valid payloads",
+    "file":  "integration/service_360/INT-176_OLTP_DentalSearch.test.ts",
+    "line":  43,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  701,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [payload=1] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Data not found\",\n  \"data\": [],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [payload=1] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/oltp-transactions/dental"
+                        },
+                        {
+                            "name":  "SOR [payload=1] Response",
+                            "contentType":  "application/json",
+                            "body":  "[]"
+                        },
+                        {
+                            "name":  "SOR [payload=1] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/OLTP-transactions/dental"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Payload Number : 0\nPayload Number : 1\n"
+                        }
+                    ]
+}

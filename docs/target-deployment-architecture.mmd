@@ -1,0 +1,49 @@
+flowchart LR
+    subgraph TODAY[Phase 1: Today - Local Development]
+        direction LR
+        DEV[Developer]
+        COPILOT[VS Code GitHub Copilot]
+        LOCAL[MCP Server\nLocal process]
+        DEV --> COPILOT
+        COPILOT -->|stdio| LOCAL
+    end
+
+    subgraph FUTURE[Phase 2: Target - Centrally Hosted Enterprise MCP]
+        direction LR
+        GATEWAY[Enterprise Central MCP Gateway]
+        AUTH[Azure Entra ID\nToken validation]
+        SUPERVISOR[GitHub Copilot Supervisor Agent\nCoordinates native domain agents]
+
+        subgraph TOOLS[Authoritative MCP Tools]
+            direction TB
+            ADO[ADO MCP Tool]
+            D365[Dataverse and D365 MCP Tool]
+            AZURE[Azure Function and Azure MCP Tool]
+            NICE[NICE MCP Tool]
+            OMILIA[Omilia MCP Tool]
+            API[USL and SOR API MCP Tool]
+        end
+
+        GATEWAY --> AUTH
+        GATEWAY --> SUPERVISOR
+        SUPERVISOR --> ADO
+        SUPERVISOR --> D365
+        SUPERVISOR --> AZURE
+        SUPERVISOR --> NICE
+        SUPERVISOR --> OMILIA
+        SUPERVISOR --> API
+    end
+
+    COPILOT -. Upgrade to central HTTP MCP .-> GATEWAY
+
+    classDef client fill:#eaf2f8,stroke:#2471a3,color:#1b2631,stroke-width:1px;
+    classDef gateway fill:#d5f5e3,stroke:#1e8449,color:#1b2631,stroke-width:1px;
+    classDef security fill:#fdebd0,stroke:#d35400,color:#1b2631,stroke-width:1px;
+    classDef agent fill:#e8daef,stroke:#7d3c98,color:#1b2631,stroke-width:1px;
+    classDef tool fill:#fef9e7,stroke:#b7950b,color:#1b2631,stroke-width:1px;
+
+    class DEV,COPILOT,LOCAL client;
+    class GATEWAY gateway;
+    class AUTH security;
+    class SUPERVISOR agent;
+    class ADO,D365,AZURE,NICE,OMILIA,API tool;

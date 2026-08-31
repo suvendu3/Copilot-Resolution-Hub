@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "1bd78b67db02f3066a09-56672a3a2326cddd0988",
+    "title":  "[@regression] INT-268 EasyCOB Create Claim â€” batch run",
+    "file":  "integration/service_360/INT-268_EasyCOB-CreateClaim.test.ts",
+    "line":  42,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  2442,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL_548903_1391122983 Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"claimFormId\": 1391166997,\n      \"claimFormRevisionNumber\": 1403479474,\n      \"claimId\": 1727949619,\n      \"claimRevisionNumber\": 1775118271,\n      \"claimDetailId\": 1730480979\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL_548903_1391122983 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/548903/claims/1391122983/revisions/1403472910/easycobform"
+                        },
+                        {
+                            "name":  "SOR_548903_1391122983 Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"claimFormId\": 1391166996,\n    \"claimFormRevisionNumber\": 1403479473,\n    \"claimId\": 1727949618,\n    \"claimRevisionNumber\": 1775118270,\n    \"claimDetailId\": 1730480978\n  }\n]"
+                        },
+                        {
+                            "name":  "SOR_548903_1391122983 URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/plan-members/548903/claims/1391122983/revisions/1403472910/easy-cob"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "[SKIP] Auto-generated field \"claimFormId\" â€” SOR=1391166996 | USL=1391166997\n[SKIP] Auto-generated field \"claimFormRevisionNumber\" â€” SOR=1403479473 | USL=1403479474\n[SKIP] Auto-generated field \"claimId\" â€” SOR=1727949618 | USL=1727949619\n[SKIP] Auto-generated field \"claimRevisionNumber\" â€” SOR=1775118270 | USL=1775118271\n[SKIP] Auto-generated field \"claimDetailId\" â€” SOR=1730480978 | USL=1730480979\n[row] planMemberId=548903 | USL=200 | SOR=200\nUSL body: {\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"claimFormId\": 1391166997,\n      \"claimFormRevisionNumber\": 1403479474,\n      \"claimId\": 1727949619,\n      \"claimRevisionNumber\": 1775118271,\n      \"claimDetailId\": 1730480979\n    }\n  ],\n  \"errors\": null\n}\nSOR body: [\n  {\n    \"claimFormId\": 1391166996,\n    \"claimFormRevisionNumber\": 1403479473,\n    \"claimId\": 1727949618,\n    \"claimRevisionNumber\": 1775118270,\n    \"claimDetailId\": 1730480978\n  }\n]\n"
+                        }
+                    ]
+}

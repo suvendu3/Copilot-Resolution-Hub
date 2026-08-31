@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "f1c7fe7a313856f2b89d-53bd63fd92c5cd054a07",
+    "title":  "[@regression] [795572]Validate submitmockclaim API for all valid memberPlanId rows",
+    "file":  "integration/service_360/INT-253_MockClaimEligibility.test.ts",
+    "line":  35,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  6611,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "USL [memberPlanId=1774113] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"planMemberId\": 1774113,\n      \"dependentNo\": \"00\",\n      \"serviceDescription\": {\n        \"en\": \"Prescription Glasses-Frame\",\n        \"fr\": \"Monture ordonnance\"\n      },\n      \"submissionDate\": \"2026-07-23T09:47:14.1783771\",\n      \"claimedAmount\": 100,\n      \"deductibleAmount\": 0,\n      \"copayAmount\": 0,\n      \"paidAmount\": 0,\n      \"nextEligibilityDate\": \"2026-07-23T09:47:14.1783757\",\n      \"deductionMessages\": [],\n      \"eligibilityDateNotes\": [],\n      \"planLimitations\": [],\n      \"serviceDate\": \"2026-02-25T00:00:00\",\n      \"claimStatusCode\": \"DN\",\n      \"claimStatus\": {\n        \"en\": \"Denied\",\n        \"fr\": \"Demande refusÃ©e\"\n      },\n      \"isContactForEligibility\": false,\n      \"rxChangedPaidAmount\": 0,\n      \"eligibilityStartDate\": null,\n      \"eligibilityEndDate\": null,\n      \"maximumDollarAmount\": null,\n      \"maximumVisitAmount\": null,\n      \"claimAccumRules\": [],\n      \"claimFormId\": 1391166994,\n      \"claimFormRevisionNumber\": 1403479471,\n      \"claimId\": 1727949616,\n      \"claimRevisionNumber\": 1775118268,\n      \"claimDetailId\": 1730480976,\n      \"preloadClaimFormId\": 1513337163,\n      \"preloadClaimFormRevisionNumber\": 1,\n      \"preloadClaimId\": 1857752612,\n      \"preloadClaimRevisionNumber\": 1,\n      \"preloadClaimDetailId\": 2068934714,\n      \"procedureCode\": \"60500\",\n      \"independentConsiderations\": {\n        \"icAllowedAmount\": null,\n        \"icPaidAmount\": null,\n        \"icCopayPercentage\": null\n      },\n      \"isLowCostReplacement\": false,\n      \"lcaDin\": null,\n      \"lcaDrugName\": {\n        \"en\": null,\n        \"fr\": null\n      },\n      \"drugPricingDinTypeCode\": null\n    }\n  ],\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "USL [memberPlanId=1774113] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/1774113/submitmockclaim"
+                        },
+                        {
+                            "name":  "SOR [memberPlanId=1774113] Response",
+                            "contentType":  "application/json",
+                            "body":  "[\n  {\n    \"planMemberId\": 1774113,\n    \"dependentNo\": \"00\",\n    \"serviceDescription\": {\n      \"en\": \"Prescription Glasses-Frame\",\n      \"fr\": \"Monture ordonnance\"\n    },\n    \"submissionDate\": \"2026-07-23T09:47:15.8776085\",\n    \"claimedAmount\": 100,\n    \"deductibleAmount\": 0,\n    \"copayAmount\": 0,\n    \"paidAmount\": 0,\n    \"nextEligibilityDate\": \"2026-07-23T09:47:15.8776071\",\n    \"deductionMessages\": [],\n    \"eligibilityDateNotes\": [],\n    \"planLimitations\": [],\n    \"serviceDate\": \"2026-02-25T00:00:00\",\n    \"claimStatusCode\": \"DN\",\n    \"claimStatus\": {\n      \"en\": \"Denied\",\n      \"fr\": \"Demande refusÃ©e\"\n    },\n    \"isContactForEligibility\": false,\n    \"rxChangedPaidAmount\": 0,\n    \"eligibilityStartDate\": null,\n    \"eligibilityEndDate\": null,\n    \"maximumDollarAmount\": null,\n    \"maximumVisitAmount\": null,\n    \"claimAccumRules\": [],\n    \"claimFormId\": 1391166995,\n    \"claimFormRevisionNumber\": 1403479472,\n    \"claimId\": 1727949617,\n    \"claimRevisionNumber\": 1775118269,\n    \"claimDetailId\": 1730480977,\n    \"preloadClaimFormId\": 1513337164,\n    \"preloadClaimFormRevisionNumber\": 1,\n    \"preloadClaimId\": 1857752613,\n    \"preloadClaimRevisionNumber\": 1,\n    \"preloadClaimDetailId\": 2068934715,\n    \"procedureCode\": \"60500\",\n    \"independentConsiderations\": {\n      \"icAllowedAmount\": null,\n      \"icPaidAmount\": null,\n      \"icCopayPercentage\": null\n    },\n    \"isLowCostReplacement\": false,\n    \"lcaDin\": null,\n    \"lcaDrugName\": null,\n    \"drugPricingDinTypeCode\": null\n  }\n]"
+                        },
+                        {
+                            "name":  "SOR [memberPlanId=1774113] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/plan-members/1774113/mock-claims/consolidated"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "Schema validation passed.\nresult true\n"
+                        }
+                    ]
+}

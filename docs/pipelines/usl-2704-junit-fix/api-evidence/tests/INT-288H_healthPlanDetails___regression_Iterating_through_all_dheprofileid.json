@@ -1,0 +1,58 @@
+﻿{
+    "testId":  "b74d3bb0ab9ea63b130c-3a76a0f30e214445fe59",
+    "title":  "[@regression] Iterating through all dheprofileid",
+    "file":  "integration/service_360/INT-288H_healthPlanDetails.test.ts",
+    "line":  14,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  532,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [dheprofileid=f417ed68-cbee-4872-9d04-83322387b70d] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"clientId\": \"158231\",\n    \"resellerVoltronKey\": \"ca5734c2-5ba5-4330-9b87-c5f01e4366ff\",\n    \"resellerName\": \"testidgsd\"\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [dheprofileid=f417ed68-cbee-4872-9d04-83322387b70d] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/plans/api/v1/health/dheprofileid/f417ed68-cbee-4872-9d04-83322387b70d/clientkey/c2581269-a533-4f08-933c-b5c841670133/healthplan"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR1 [dheprofileid=f417ed68-cbee-4872-9d04-83322387b70d] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"clientId\": \"158231\"\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR1 [dheprofileid=f417ed68-cbee-4872-9d04-83322387b70d] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api.inkblottherapy.com/api/crm/v1/plan_members/f417ed68-cbee-4872-9d04-83322387b70d/client_id"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR2 [clientKey=c2581269-a533-4f08-933c-b5c841670133] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"key\": \"c2581269-a533-4f08-933c-b5c841670133\",\n  \"code\": \"GMS111\",\n  \"name\": \"Saskatchewan Medical\",\n  \"advantageClientCode\": null,\n  \"resellerKey\": \"ca5734c2-5ba5-4330-9b87-c5f01e4366ff\",\n  \"deletedAt\": null,\n  \"clientExternalId\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR2 [clientKey=c2581269-a533-4f08-933c-b5c841670133] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.greenshieldplus.ca/voltron/v1/eligibility/admin/client/c2581269-a533-4f08-933c-b5c841670133"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR3 [resellerKey=ca5734c2-5ba5-4330-9b87-c5f01e4366ff] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"key\": \"ca5734c2-5ba5-4330-9b87-c5f01e4366ff\",\n  \"code\": \"testess ets\",\n  \"name\": \"testidgsd\",\n  \"advantageClientCode\": null,\n  \"resellerKey\": null,\n  \"deletedAt\": null,\n  \"clientExternalId\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR3 [resellerKey=ca5734c2-5ba5-4330-9b87-c5f01e4366ff] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.greenshieldplus.ca/voltron/v1/eligibility/admin/client/ca5734c2-5ba5-4330-9b87-c5f01e4366ff"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e dheprofileid=f417ed68-cbee-4872-9d04-83322387b70d and clientkey=c2581269-a533-4f08-933c-b5c841670133\nUSL and System API responses are fully matched.\nresult true\n"
+                        }
+                    ]
+}

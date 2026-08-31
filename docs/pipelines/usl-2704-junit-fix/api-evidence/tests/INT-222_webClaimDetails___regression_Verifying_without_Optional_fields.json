@@ -1,0 +1,38 @@
+﻿{
+    "testId":  "afbf1d7d4a21f08e1d3b-92c69164121012abb64b",
+    "title":  "[@regression] Verifying without Optional fields",
+    "file":  "integration/service_360/INT-222_webClaimDetails.test.ts",
+    "line":  16,
+    "project":  "regression",
+    "outcome":  "expected",
+    "ok":  true,
+    "durationMs":  991,
+    "status":  "passed",
+    "attachments":  [
+                        {
+                            "name":  "[PASS-Row1] USL [webClaimId=14312277] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"isSuccess\": true,\n  \"statusCode\": 200,\n  \"message\": \"Success\",\n  \"data\": {\n    \"transmissionDate\": \"2026-06-29T14:42:28\",\n    \"providerName\": null,\n    \"address\": {\n      \"addressLineOne\": null,\n      \"addressLineTwo\": null,\n      \"addressLineThree\": null,\n      \"cityName\": null\n    },\n    \"providerPhone\": null,\n    \"claimFormId\": null,\n    \"declaration\": {\n      \"isCoverageUnderBenefit\": \"N\",\n      \"isCoverageGSC\": null,\n      \"hasClaimSubmittedOtherBenefitPlan\": null,\n      \"hasClaimInsuredAsAccidentResult\": \"NONE\",\n      \"payUnPaidBalanceThroughOtherGSCPlan\": null,\n      \"gscNumber\": null,\n      \"unPaidExpensesThroughHCSA\": null\n    }\n  },\n  \"errors\": null\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] USL [webClaimId=14312277] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://usl-sit.onlineweb.ca/service360/claims/api/v1/plan-members/webclaims/details?webClaimId=14312277"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [webClaimId=14312277] Response",
+                            "contentType":  "application/json",
+                            "body":  "{\n  \"planMemberId\": \"1752016\",\n  \"firstName\": \"KEITH\",\n  \"lastName\": \"SCHNEIDER\",\n  \"transmissionDate\": \"2026-06-29T14:42:28\",\n  \"providerName\": null,\n  \"address\": {\n    \"addressLineOne\": null,\n    \"addressLineTwo\": null,\n    \"addressLineThree\": null,\n    \"cityName\": null\n  },\n  \"phone\": null,\n  \"hasAlternateCoverage\": \"N\",\n  \"hasSubmittedToAlternateCarrier\": null,\n  \"secondaryCoverageIndicator\": null,\n  \"payToSecondaryCoverage\": null,\n  \"autoCoordinateIndicator\": null,\n  \"accidentType\": \"NONE\",\n  \"incidentDate\": null,\n  \"wsibCaseNumber\": null,\n  \"secondaryPlanMemberId\": null,\n  \"submissionTypeCode\": \"UC\"\n}"
+                        },
+                        {
+                            "name":  "[PASS-Row1] SOR [webClaimId=14312277] URL",
+                            "contentType":  "text/plain",
+                            "body":  "https://api-qa.onlineweb.ca/claims-api/v1/plan-members/web-claims/details?rawClaimId=14312277"
+                        },
+                        {
+                            "name":  "stdout",
+                            "contentType":  "text/plain",
+                            "body":  "\n=\u003e webClaimId=14312277\nresult true\n\n=\u003e webClaimId=14312276\nresult true\n\n=\u003e webClaimId=14312275\nresult true\n\n=\u003e webClaimId=14312274\nresult true\n\n=\u003e webClaimId=14312265\nresult true\n"
+                        }
+                    ]
+}
