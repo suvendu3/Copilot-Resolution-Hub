@@ -1,0 +1,26 @@
+# NeMo Guardrails configuration for the skill-agent-function add-on.
+#
+# This is a defense-in-depth layer that complements (never replaces) the
+# regex pre-hooks in guardrail_hooks.py and the LLM-driven io-guardrails
+# skill checks in graph.py. Model credentials come only from environment
+# variables (Function App settings / Key Vault references) - never
+# hardcode secrets here.
+
+models:
+  - type: main
+    engine: azure
+    # Set this to your AZURE_OPENAI_DEPLOYMENT value. Azure endpoint, API key,
+    # and API version are read from the standard AZURE_OPENAI_* / OPENAI_API_VERSION
+    # environment variables by the underlying langchain-openai client.
+    model: REPLACE_WITH_AZURE_OPENAI_DEPLOYMENT_NAME
+
+rails:
+  input:
+    flows:
+      - scope allow list check
+      - self check input
+  output:
+    flows:
+      - self check output
+
+streaming: false

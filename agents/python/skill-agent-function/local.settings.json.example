@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AZURE_OPENAI_ENDPOINT": "https://<your-resource>.openai.azure.com/",
+    "AZURE_OPENAI_API_KEY": "<set-locally-do-not-commit>",
+    "AZURE_OPENAI_DEPLOYMENT": "<your-chat-deployment-name>",
+    "AZURE_OPENAI_API_VERSION": "2024-08-01-preview",
+    "SKILLS_DIR": "",
+    "LOGFIRE_TOKEN": "<set-locally-do-not-commit>",
+    "LOGFIRE_SERVICE_NAME": "skill-agent-function"
+  }
+}

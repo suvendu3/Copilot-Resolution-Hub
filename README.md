@@ -168,7 +168,8 @@ flowchart TB
 - Auto mode uses complexity-based routing: low and medium tasks use default mini-model agents, while high-complexity tasks trigger Maker/Checker re-validation on a higher-capability model before final recommendation.
 - MCP Inspector is used to approve and periodically re-inspect MCP server/tool contracts, not as a per-task agent dependency.
 - High-risk, low-confidence, production, security, data-integrity, and cross-system changes require human approval.
-- No Python orchestration, LangGraph, Semantic Kernel, or custom routing/classifier source code is used.
+- Each defect run is observable: agents emit a structured run-record (one trace per work item, one span per agent hop, guardrail verdict, MCP evidence call, Maker/Checker step, and model escalation) that is exported to Logfire or any OpenTelemetry (OTLP) backend. Observability is post-hoc telemetry only and does not participate in routing.
+- No Python orchestration, LangGraph, Semantic Kernel, or custom routing/classifier source code is used. The only executable code is a standalone telemetry exporter (`observability/emit_traces.py`), kept outside the agent decision flow.
 
 ## Implemented Agent Controls
 
@@ -180,13 +181,17 @@ flowchart TB
 | Feedback and learning | [Reliability and Learning Design](docs/agent-reliability-learning-design.md) | Defines append-only evaluation records, metrics, knowledge promotion, and rollback rules. |
 | MCP inspection | [MCP Governance Skill](.github/skills/mcp-governance/SKILL.md) and [MCP Inspection Inventory](docs/mcp-inspection-inventory.md) | Governs MCP Inspector testing, tool approval, Maker/Checker access, and safe evidence handling. |
 | Input/output guardrails | [I/O Guardrails Skill](.github/skills/io-guardrails/SKILL.md) | Deterministic pre-LLM scope filter plus input (injection, scope, secret/PII) and output (secret scan, grounding, relevancy, write-risk, contract) checks under a hybrid block/escalate policy. |
+| Agent observability | [Agent Observability Skill](.github/skills/agent-observability/SKILL.md) and [observability/](observability/README.md) | Emits one OpenTelemetry trace per defect run (span per agent hop, guardrail, MCP call, Maker/Checker step, model escalation) to Logfire or any OTLP backend, with mandatory secret/PII redaction before export. |
+| AI governance policy | [AI Governance](docs/ai-governance.md) | Consolidates all controls under NIST AI RMF (Govern/Map/Measure/Manage) with RACI, data/model governance, incident response, and tracked gaps. |
 
 ## Repository Contents
 
 - [copilot-instructions.md](copilot-instructions.md): global operating rules and deployment architecture.
 - [.github/agents](.github/agents): supervisor, domain, and specialist agent definitions.
-- [.github/skills](.github/skills): repeatable multi-agent workflows and governance skills, including the [I/O Guardrails Skill](.github/skills/io-guardrails/SKILL.md).
+- [.github/skills](.github/skills): repeatable multi-agent workflows and governance skills, including the [I/O Guardrails Skill](.github/skills/io-guardrails/SKILL.md) and the [Agent Observability Skill](.github/skills/agent-observability/SKILL.md).
+- [observability/](observability/README.md): OpenTelemetry/Logfire trace exporter (`emit_traces.py`), run-record schema, and example — turns agent run-records into distributed traces.
 - [docs/enterprise-agent-architecture.md](docs/enterprise-agent-architecture.md): detailed architecture guidance.
+- [docs/ai-governance.md](docs/ai-governance.md): consolidated AI governance policy mapped to NIST AI RMF (roles, data/model policy, incident response, tracked gaps).
 - [docs/agent-reliability-learning-design.md](docs/agent-reliability-learning-design.md): Maker/Checker separation, evaluation metrics, learning loop, and adoption plan.
 - [docs/mcp-inspection-inventory.md](docs/mcp-inspection-inventory.md): MCP Inspector approval record for server and tool contracts.
 - [docs/repository-registry.md](docs/repository-registry.md): approved repositories and branches for source-code investigation.
@@ -202,7 +207,8 @@ flowchart TB
 | Checker Agent (independent validation) | Implemented |
 | Human Approval Gate | Implemented |
 | Input/Output Guardrails (pre-LLM scope filter, grounding, relevancy) | Implemented |
-| Skills (triage, routing, MCP governance, I/O guardrails, fix recommendation, human approval) | Implemented |
+| Agent Observability (OpenTelemetry/Logfire run-record tracing) | Implemented |
+| Skills (triage, routing, MCP governance, I/O guardrails, observability, fix recommendation, human approval) | Implemented |
 | ADO MCP integration | Implemented |
 | D365 / Dataverse MCP integration | Implemented |
 | USL Automation MCP integration | Implemented |
@@ -242,3 +248,15 @@ flowchart TB
 - If `pac-mcp` fails on a teammate machine, use fallback entries in this order: `pac-mcp-pac-cli`, then `pac-mcp-dnx`.
 - Prerequisites for PAC entries: .NET 10 in user profile and PAC CLI tool installed for that user.
 - After pulling latest changes, reload VS Code window once so MCP server list refreshes.
+
+## Observability Quick Start (Team)
+
+- Full details: [observability/README.md](observability/README.md) and the [Agent Observability Skill](.github/skills/agent-observability/SKILL.md).
+- Install once: `pip install -r observability/requirements.txt`.
+- Console mode (no account, good for demos and CI):
+  ```powershell
+  python observability/emit_traces.py --input observability/examples/run-record.example.json --console
+  ```
+- Ship to Logfire: set `LOGFIRE_TOKEN`, then run the same command without `--console`.
+- Ship to any OTLP backend (Tempo/Jaeger/Honeycomb/Azure Monitor): set `OTEL_EXPORTER_OTLP_ENDPOINT`, add `--otlp`.
+- Redaction is mandatory before emit: never place secrets, PATs, or PII in span names, attributes, or events.

@@ -1,0 +1,13 @@
+# Custom Colang flow wiring our deterministic scope filter (guardrail_hooks.py,
+# registered in nemo_rails.py as the "scope_allow_list_check" action) into the
+# input rails, plus the shared refusal message used by every blocking flow.
+# NOTE: this refusal text must stay in sync with REFUSAL_MESSAGE in nemo_rails.py.
+
+define bot refuse to respond
+  "That request was blocked by the assistant's safety rails. I can help with ADO defects, user stories, and CRM / CCaaS / downstream API analysis in this repository."
+
+define flow scope allow list check
+  $decision = execute scope_allow_list_check
+  if $decision == "blocked"
+    bot refuse to respond
+    stop

@@ -63,8 +63,13 @@ __pycache__/
 Downloads/
 Downloads - Copy/
 temp/
-*.docx
+    
 *.jpg
 *.qa
 *.trn
 *.prod
+
+# Machine-local VS Code settings and captured API/test evidence
+.vscode/settings.json
+docs/pipelines/usl-2704-junit-fix/api-evidence/
+docs/pipelines/usl-2704-junit-fix/SIT_Regression_Report_23-07-2026.html
